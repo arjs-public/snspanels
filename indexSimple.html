@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Buttons UI</title>
+    <link rel="stylesheet" href="styleSimple.css">
+    <style>
+        .button-row {            
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .button-row button {
+            margin-right: 10px; /* Maintain existing margin */
+            padding: 10px;  /* Maintain existing padding */
+            border: 3px solid black; /* Thicker border with blue color */
+            border-radius: 10px; /* Rounded corners with 5px radius */
+            background-color: #e7f1fe; /* Light blue background color */
+            color: green; /* Green text color */
+            font-weight: bold; /* Bold text */
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: top;
+            height: 100vh;
+            margin: 0;
+        }
+        iframe {
+            width: 600px;
+            height: 110px;
+            margin-bottom: 20px;
+        }
+        #button-container {
+            position: fixed;
+            top: 120px;
+        }
+    </style>
+</head>
+<body>
+<body>
+    <div class="container">
+        <div class="row row-1">
+            <iframe src="https://statsnscore.online/overlay/game/6633d99fd56048341f1f2427/iframegflj" frameborder="0"></iframe>
+        </div>
+        <div class="row row-2">
+            <div id="left" class="column blue">
+                <span class="center-text title">Home</span>
+            </div>
+            <div id="center" class="column flex-column green"></div>
+            <div id="right" class="column red">
+                <span class="center-text title">Guest</span>
+            </div>
+        </div>
+        <div class="row row-3">
+            <p style="font-weight: normal;">Command sent: </p>&nbsp;<p id="command-info"></p>
+        </div>
+    </div>
+    <script>
+        let buttons = [
+            {
+                buttonName: "Next Quarter",
+                commandInfo: "countquarter",
+                color: "black",
+                background: "#e7f1fe"
+            },
+            {
+                buttonName: "Flag",
+                commandInfo: "flag",
+                color: "red",
+                background: "yellow"
+            },
+            // Add more button objects as needed
+            {
+                buttonName: "Ball Home",
+                commandInfo: "ballbesitzTeam1",
+                color: "white",
+                background: "#3498db"
+            },
+            {
+                buttonName: "1st & 10",
+                commandInfo: "firstDown"
+            },
+            {
+                buttonName: "Next Down",
+                commandInfo: "countDowns"
+            },
+            {
+                buttonName: "Ball Guest",
+                commandInfo: "ballbesitzTeam2",
+                color: "white",
+                background: "#e74c3c"
+            },
+            // Add more button objects as needed
+            {
+                buttonName: "ToGo -10y",
+                commandInfo: "yardsminus10",
+                color: "black",
+                background: "#C1C1C1"
+            },
+            {
+                buttonName: "ToGo -5y",
+                commandInfo: "yardsminus5",
+                color: "black",
+                background: "#C1C1C1"
+            },
+            {
+                buttonName: "ToGo -1y",
+                commandInfo: "yardsminus1",
+                color: "black",
+                background: "#C1C1C1"
+            },
+            // Add more button objects as needed
+            {
+                buttonName: "ToGo +10y",
+                commandInfo: "yardsplus10",
+                color: "white",
+                background: "#616163"
+            },
+            {
+                buttonName: "ToGo +5y",
+                commandInfo: "yardsplus5",
+                color: "white",
+                background: "#616163"
+            },
+            {
+                buttonName: "ToGo +1y",
+                commandInfo: "yardsplus1",
+                color: "white",
+                background: "#616163"
+            },
+            // Add more button objects as needed
+            {
+                buttonName: "Touchdown",
+                commandInfo: "touchdownTeam1"
+            },
+            {
+                buttonName: "Field Goal",
+                commandInfo: "fieldgoalTeam1"
+            },
+            {
+                buttonName: "PAT",
+                commandInfo: "patTeam1"
+            },
+            // Add more button objects as needed
+            {
+                buttonName: "2 Points",
+                commandInfo: "twopointTeam1"
+            },
+            {
+                buttonName: "Safety",
+                commandInfo: "safetyTeam1"
+            },
+            {
+                buttonName: "Correct -1 Point",
+                commandInfo: "minusTeam1",
+                color: "black",
+                background: "#C1C1C1"
+            },
+            {
+                buttonName: "Correct +1 Point",
+                commandInfo: "plusTeam1",
+                color: "white",
+                background: "#616163"
+            },
+            // Add more button objects as needed
+            {
+                buttonName: "Timeout",
+                commandInfo: "countTimeoutTeam1"
+            },
+            {
+                buttonName: "TO Correct -1",
+                commandInfo: "minusTimeoutTeam1",
+                color: "black",
+                background: "#C1C1C1"
+            },
+            {
+                buttonName: "TO Correct +1",
+                commandInfo: "plusTimeoutTeam1",
+                color: "white",
+                background: "#616163"
+            },
+            // Add more button objects as needed
+            {
+                buttonName: "Touchdown",
+                commandInfo: "touchdownTeam2"
+            },
+            {
+                buttonName: "Field Goal",
+                commandInfo: "fieldgoalTeam2"
+            },
+            {
+                buttonName: "PAT",
+                commandInfo: "patTeam2"
+            },
+            // Add more button objects as needed
+            {
+                buttonName: "2 Points",
+                commandInfo: "twopointTeam2"
+            },
+            {
+                buttonName: "Safety",
+                commandInfo: "safetyTeam1"
+            },
+            {
+                buttonName: "Correct -1 Point",
+                commandInfo: "minusTeam2",
+                color: "black",
+                background: "#C1C1C1"
+            },
+            {
+                buttonName: "Correct +1 Point",
+                commandInfo: "plusTeam2",
+                color: "white",
+                background: "#616163"
+            },
+            // Add more button objects as needed
+            {
+                buttonName: "Timeout",
+                commandInfo: "countTimeoutTeam2"
+            },
+            {
+                buttonName: "TO Correct -1",
+                commandInfo: "minusTimeoutTeam2",
+                color: "black",
+                background: "#C1C1C1"
+            },
+            {
+                buttonName: "TO Correct +1",
+                commandInfo: "plusTimeoutTeam2",
+                color: "white",
+                background: "#616163"
+            },
+        ];
+
+        const token = getURLParameter('token')
+        const game = getURLParameter('game')
+        const league = getURLParameter('league')
+        const test = getURLParameter('test')
+        console.log(token)
+        
+        const iframeElement = document.querySelector('.row-1 iframe'); // Get the iframe element
+        const baseUrl = "https://statsnscore.online/overlay/game/"; // Define the base URL
+        
+        // Construct the source URL using concatenation
+        const sourceUrl = baseUrl + game + "/iframe" + league;        
+        iframeElement.src = sourceUrl; // Set the source attribute
+        console.log(sourceUrl)
+        
+        const commandInfoElement = document.getElementById("command-info");
+        const left = document.getElementById('left');
+        const center = document.getElementById('center');
+        const right = document.getElementById('right');
+        var layout = [2,4,3,3,3,4,3,3,4,3]; // Layout for the buttons
+        var side = ["center","center","center","center","left","left","left","right","right","right"]; // Layout for the buttons
+
+        function getURLParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Function to send the GET request
+        function sendGetRequest(buttonName) {
+            // URL you want to send the request to
+            //console.log(buttonName)
+            var url = 'https://statsnscore.online/scoreboard/controltoken/' + token + '/';
+
+            url += buttonName// buttons[buttonName].commandInfo
+            console.log(url)
+
+            // Sending the GET request using Fetch API
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    commandInfoElement.textContent = buttonName;
+                    return response.json(); // Assuming response is JSON, adjust as needed
+                })
+                .then(data => {
+                    // Handle the response data
+                    console.log(`Response for ${buttonName}:`, data);
+                    commandInfoElement.textContent = buttonName;
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error(`Error for ${buttonName}:`, error);
+                    commandInfoElement.textContent = buttonName;
+                });
+        }
+
+        let buttonIndex = 0;
+        for (let i = 0; i < layout.length; i++) {
+            const row = document.createElement('div');
+            row.className = 'button-row';
+            for (let j = 0; j < layout[i]; j++) {
+                const button = document.createElement('button');
+                button.textContent = buttons[buttonIndex].buttonName;
+                if (buttons[buttonIndex].color) button.style.color = buttons[buttonIndex].color;
+                if (buttons[buttonIndex].background) button.style.background = buttons[buttonIndex].background;
+                button.onclick = (function(index) {
+                    return function() {
+                        //console.log(buttons[index].commandInfo);
+                        if (!test) sendGetRequest(buttons[index].commandInfo);
+                        commandInfoElement.textContent = buttons[index].commandInfo;
+                    };
+                })(buttonIndex);
+                row.appendChild(button);
+                buttonIndex++;
+            }
+            switch (side[i]) {
+                case "left":
+                    left.appendChild(row);
+                    break;
+                case "center":
+                    center.appendChild(row);
+                    break;
+                case "right":
+                    right.appendChild(row);
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

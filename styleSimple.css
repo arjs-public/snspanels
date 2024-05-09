@@ -1,0 +1,75 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh; /* Set minimum height for full viewport */
+  }
+  
+  .row {
+    display: flex;
+    width: 100%;
+  }
+  
+  .row-1 {
+    justify-content: center;
+  }
+  
+  .row-2 {
+    justify-content: space-between;
+  }
+
+  .row-3 {
+    justify-content: center;
+    text-align: center; /* Center the text within the row */
+  }
+  
+  .row-3 * { /* Target all elements inside .row-2 */
+    font-weight: bold; /* Make the text bold */
+    font-size: 1.1em; /* Increase font size by 1.2 times the base font size */
+  }
+
+  .column {
+    padding: 1rem;
+    border: 1px solid #ddd;
+  }
+  
+  .flex-column {
+    flex: 1; /* Allow middle column to flex */
+  }
+  
+  .blue {
+    background-color: #3498db;
+    color: #fff;
+  }
+
+  .red {
+    background-color: #e74c3c;
+    color: #fff;
+  }
+
+  .green {
+    background-color: #2ecc71;
+    color: #fff;
+  }
+
+  #left {
+    margin: 0 1rem;
+    /* Other styles for #left */
+  }
+
+  #right {
+    margin: 0 1rem;
+    /* Other styles for #left */
+  }
+
+  .center-text {
+    display: block; /* Make it a block-level element */
+    width: 100%; /* Set width to 100% of its container */
+    text-align: center; /* Center the text */
+  }
+
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }

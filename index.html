@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statsnscore Form Selector</title>
+    <style>
+    </style>
+<body>
+    <form id="url-form">
+        <div class="form-group">
+            <label for="baseUrl">Game ID:</label>
+            <input type="text" id="baseUrl" name="baseUrl" value="file:///Users/homeboy/Downloads/sns/snspanels/">
+        </div>
+        <div class="form-group">
+            <label for="game-id">Game ID:</label>
+            <input type="text" id="game-id" name="game">
+        </div>
+        <div class="form-group">
+            <label for="league">League:</label>
+            <input type="text" id="league" name="league">
+        </div>
+        <div class="form-group">
+            <label for="token">Token:</label>
+            <input type="text" id="token" name="token">
+        </div>
+        <div class="form-group">
+            <label for="url-select">Select URL:</label>
+            <select id="url-select" name="url">
+            <option value="indexClock.html">indexClock.html</option>
+            <option value="indexSimple.html">indexSimple.html</option>
+            </select>
+        </div>
+        <button type="button" id="submit-btn">Generate URL</button>
+    </form>
+    <script>
+        const form = document.getElementById('url-form');
+        const submitBtn = document.getElementById('submit-btn');
+        
+        submitBtn.addEventListener('click', function(event) {
+          event.preventDefault(); // Prevent default form submission
+        
+          const baseUrl = document.getElementById('baseUrl').value;
+          const gameId = document.getElementById('game-id').value;
+          const league = document.getElementById('league').value;
+          const token = document.getElementById('token').value;
+          const selectedUrl = document.getElementById('url-select').value;
+        
+          // Check if any field is empty
+          if (!gameId || !league || !token) {
+            alert('Please fill in all fields!');
+            return;
+          }
+        
+          // Build the URL
+          //const baseUrl = 'your_base_url'; // Replace with your actual base URL
+          const url = `${baseUrl}/${selectedUrl}?game=${gameId}&league=${league}&token=${token}`;
+          //const url = `${baseUrl}/${selectedUrl}?game=${gameId}&league=${league}&token=${token}`;
+        
+          // Open URL in a new tab/window
+          window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
