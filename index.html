@@ -60,6 +60,10 @@
           // Open URL in a new tab/window
           window.open(url, '_blank');
         });
+        window.onload = function() {
+            var baseUrl = window.location.origin;
+            document.getElementById('baseUrl').value = baseUrl;
+        }
     </script>
 </body>
 </html>
