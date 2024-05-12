@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Buttons UI</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .button-row {            
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .button-row button {
+            margin-right: 10px; /* Maintain existing margin */
+            padding: 10px;  /* Maintain existing padding */
+            border: 3px solid black; /* Thicker border with blue color */
+            border-radius: 10px; /* Rounded corners with 5px radius */
+            background-color: #e7f1fe; /* Light blue background color */
+            color: green; /* Green text color */
+            font-weight: bold; /* Bold text */
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: top;
+            height: 100vh;
+            margin: 0;
+        }
+        iframe {
+            width: 600px;
+            height: 110px;
+            margin-bottom: 20px;
+        }
+        #button-container {
+            position: fixed;
+            top: 120px;
+        }
+    </style>
+</head>
+<body>
+<body>
+    <div class="container">
+        <div class="row row-1">
+            <iframe src="https://statsnscore.online/overlay/game/6633d99fd56048341f1f2427/iframegflj" frameborder="0"></iframe>
+        </div>
+        <div class="row row-2">
+            <div id="center" class="column green flex-column">
+                <span class="center-text title">Setup</span>
+            </div>
+        </div>
+        <div class="row row-3">
+            <p style="font-weight: normal;">Command sent: </p>&nbsp;<p id="command-info"></p>
+        </div>
+    </div>
+    <script>
+        let buttons = [
+            {
+                buttonName: "Show/Hide Quarter",
+                commandInfo: "quarterShow",
+                color: "white",
+                background: "green"
+            },
+            {
+                buttonName: "Show/Hide Gameclock",
+                commandInfo: "gameclockShow",
+                color: "yellow",
+                background: "red"
+            },
+            {
+                buttonName: "Show/Hide Playclock",
+                commandInfo: "playclockShow",
+                color: "white",
+                background: "blue"
+            },
+            {
+                buttonName: "Show/Hide Downs",
+                commandInfo: "downShow",
+                color: "white",
+                background: "green"
+            },
+            {
+                buttonName: "Show/Hide To Go",
+                commandInfo: "distanceShow",
+                color: "black",
+                background: "#e7f1fe"
+            },
+            {
+                buttonName: "Show/Hide Record",
+                commandInfo: "recordShow",
+                color: "black",
+                background: "#e7f1fe"
+            },
+            {
+                buttonName: "Show/Hide L.O.S.",
+                commandInfo: "losShow",
+                color: "black",
+                background: "#e7f1fe"
+            },
+            {
+                buttonName: "Set 12min Clock",
+                commandInfo: "reset12Clock",
+                color: "black",
+                background: "#C1C1C1"
+            },
+            {
+                buttonName: "Set 15min Clock",
+                commandInfo: "reset15Clock",
+                color: "black",
+                background: "#C1C1C1"
+            },
+            {
+                buttonName: "Set 30min Clock",
+                commandInfo: "reset30Clock",
+                color: "black",
+                background: "#C1C1C1"
+            },
+            {
+                buttonName: "Set 40sec Playclock",
+                commandInfo: "reset40Playclock",
+                color: "white",
+                background: "#616163"
+            },
+            {
+                buttonName: "Set 30sec Playclock",
+                commandInfo: "reset30Playclock",
+                color: "white",
+                background: "#616163"
+            },
+            {
+                buttonName: "Set 25sec Playclock",
+                commandInfo: "reset25Playclock",
+                color: "white",
+                background: "#616163"
+            },
+        ];
+
+        const token = getURLParameter('token')
+        const game = getURLParameter('game')
+        const league = getURLParameter('league')
+        const test = getURLParameter('test')       
+        const iframeElement = document.querySelector('.row-1 iframe'); // Get the iframe element
+        const baseUrl = "https://statsnscore.online/overlay/game/"; // Define the base URL
+        
+        // Construct the source URL using concatenation
+        const sourceUrl = baseUrl + game + "/iframe" + league;        
+        iframeElement.src = sourceUrl; // Set the source attribute
+        
+        const commandInfoElement = document.getElementById("command-info");
+        const left = document.getElementById('left');
+        const center = document.getElementById('center');
+        const right = document.getElementById('right');
+        var layout = [4,3,3,3]; // Layout for the buttons
+        var side = ["center","center","center","center"]; // Layout for the buttons
+
+        function getURLParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Function to send the GET request
+        function sendGetRequest(buttonName) {
+            // URL you want to send the request to
+            //console.log(buttonName)
+            var url = 'https://statsnscore.online/scoreboard/controltoken/' + token + '/';
+
+            url += buttonName// buttons[buttonName].commandInfo
+            console.log(url)
+
+            // Sending the GET request using Fetch API
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    commandInfoElement.textContent = buttonName;
+                    return response.json(); // Assuming response is JSON, adjust as needed
+                })
+                .then(data => {
+                    // Handle the response data
+                    console.log(`Response for ${buttonName}:`, data);
+                    commandInfoElement.textContent = buttonName;
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error(`Error for ${buttonName}:`, error);
+                    commandInfoElement.textContent = buttonName;
+                });
+        }
+
+        let buttonIndex = 0;
+        for (let i = 0; i < layout.length; i++) {
+            const row = document.createElement('div');
+            row.className = 'button-row';
+            for (let j = 0; j < layout[i]; j++) {
+                const button = document.createElement('button');
+                button.textContent = buttons[buttonIndex].buttonName;
+                if (buttons[buttonIndex].color) button.style.color = buttons[buttonIndex].color;
+                if (buttons[buttonIndex].background) button.style.background = buttons[buttonIndex].background;
+                button.onclick = (function(index) {
+                    return function() {
+                        //console.log(buttons[index].commandInfo);
+                        if (!test) sendGetRequest(buttons[index].commandInfo);
+                        commandInfoElement.textContent = buttons[index].commandInfo;
+                    };
+                })(buttonIndex);
+                row.appendChild(button);
+                buttonIndex++;
+            }
+            switch (side[i]) {
+                case "left":
+                    left.appendChild(row);
+                    break;
+                case "center":
+                    center.appendChild(row);
+                    break;
+                case "right":
+                    right.appendChild(row);
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
