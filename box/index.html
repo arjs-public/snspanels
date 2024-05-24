@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple List Application</title>
+  <title>S'nS Info Box Selector</title>
   <style>
     body {
       font-family: sans-serif;
@@ -72,7 +72,7 @@
 </head>
 <body>
   <div class="container">
-    <h2>Overlay Selector</h2>
+    <h2>S'n S Info Box Selector</h2>
     <select id="listbox" class="listbox" size="15" onclick="fillTextBoxes()">
     </select>
     <div class="edit-fields">
@@ -93,7 +93,8 @@
         <button onclick="addItem()">Add</button>
         <button onclick="deleteItem()">Delete</button>
         <button onclick="editItem()">Edit</button>
-        <button onclick="showFunction()">Show</button>
+        <button onclick="showNewFunction()">Show New</button>
+        <button onclick="showSameFunction()">Show Same</button>
     </div>
   </div>
   <script>
@@ -141,7 +142,17 @@
         updateListbox();
     }
     
-    function showFunction() {
+    function showNewFunction() {
+        var listbox = document.getElementById("listbox");
+        var selectedItem = items[listbox.selectedIndex];
+        var url = "https://arjs-public.github.io/snspanels/box/overlay.html?top=" + selectedItem.top + "&bottom=" + selectedItem.bottom;
+        window.open(url, "_blank");
+        document.getElementById("name").value = "";
+        document.getElementById("top").value = "";
+        document.getElementById("bottom").value = "";
+    }
+    
+    function showSameFunction() {
         var listbox = document.getElementById("listbox");
         var selectedItem = items[listbox.selectedIndex];
         var url = "https://arjs-public.github.io/snspanels/box/overlay.html?top=" + selectedItem.top + "&bottom=" + selectedItem.bottom;
