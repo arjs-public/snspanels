@@ -1,0 +1,137 @@
+<html
+  lang="en"
+  style="
+    --bauchbox-opacity: 1;
+    --comparison1-opacity: 0;
+    --comparison2-opacity: 0;
+    --comparisonTeam-opacity: 0;
+    --comp1rotate: 90deg;
+    --comp1moveX: 0px;
+    --comp2rotate: -90deg;
+    --comp2moveX: 0px;
+    --comparisonteamrotate: -50deg;
+    --comparisonteammoveY: -200px;
+    --comparisonteamsec: 2s;
+    --teamrotate: -50deg;
+    --teammoveY: -200px;
+    --teamsec: 2s;
+    --losbox-opacity: 0.5;
+    --losbox-color: transparent;
+    --playclockbox-color: #9da9b1;
+    --playclockbox-text: #0d0728;
+    --snsbanner-opacity: 0;
+    --player1-left: -300px;
+    --player2-left: -300px;
+    --player3-left: -300px;
+    --player4-left: -300px;
+    --player5-left: -300px;
+    --opacity-value-box1: 0;
+    --opacity-value-box2: 0;
+    --team-left: -1500px;
+    --team-down: 500px;
+    --team-rotate: -90deg;
+    --rosterbox-down: 500px;
+    --rosterbox-rotate: -90deg;
+    --roster-opacity: 0;
+    --roster-team-opacity: 0;
+    --roster-coach-opacity: 0;
+    --fade-delay: 0ms;
+    --name-left: -1600px;
+    --coach-down: 500px;
+    --coach-rotate: -90deg;
+    --team-fade: 0ms;
+    --opacity-roster: 0;
+    --opacity-roster-team: 0;
+    --opacity-roster-coach: 0;
+    --player-hide: 100px;
+    --opacity-player: 0;
+    --opacity-player1: 0;
+    --opacity-player2: 0;
+  "
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Stats n Score</title>
+
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="overlay2024all.css" />
+    <style>
+      body {
+        background-color: #ff00ff;
+      }
+    </style>
+    <style class="__css_exfil_protection_filtered_styles"></style>
+    <style class="automa-element-selector">
+      @font-face {
+        font-family: "Inter var";
+        font-weight: 100 900;
+        font-display: swap;
+        font-style: normal;
+        font-named-instance: "Regular";
+        src: url("chrome-extension://infppggnoaenmfagbfknfkancpbljcca/Inter-roman-latin.var.woff2")
+          format("woff2");
+      }
+      .automa-element-selector {
+        direction: ltr;
+      }
+      [automa-isDragging] {
+        user-select: none;
+      }
+      [automa-el-list] {
+        outline: 2px dashed #6366f1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="backgrounddiv">
+      <img
+        id="backgroundimage"
+        src="gfl-live-senderlogo-hd.png"
+      />
+    </div>
+
+    <div id="scoreboard">
+      <div id="bauchbox">
+        <div id="bauchboximagebox">
+          <img
+            id="bauchboximage"
+            src="scoreboard_bauchbinde_2022.png"
+          />
+        </div>
+        <div id="bauchboxleaguelogobox">
+          <img id="bauchboxleaguelogo" src="erimaGFL_Logo22.png" />
+        </div>
+
+        <div id="bauchboxtoptext">Test</div>
+        <div id="bauchboxbottomtext">Alex</div>
+      </div>
+    </div>
+
+    <div id="automa-palette"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Function to get URL parameters
+        function getURLParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+    
+        // Get the "top" and "bottom" parameters from the URL
+        const topText = getURLParameter("top");
+        const bottomText = getURLParameter("bottom");
+    
+        // Decode the parameters
+        const decodedTopText = topText ? decodeURIComponent(topText) : '';
+        const decodedBottomText = bottomText ? decodeURIComponent(bottomText) : '';
+    
+        // Display the parameters in the respective divs
+        document.getElementById("bauchboxtoptext").textContent = decodedTopText;
+        document.getElementById("bauchboxbottomtext").textContent = decodedBottomText;
+    });    
+    </script>
+
+  </body>
+</html>

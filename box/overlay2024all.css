@@ -1,0 +1,2151 @@
+/* roboto-700 - latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/css/fonts/roboto-v30-latin-700.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('/css/fonts/roboto-v30-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/css/fonts/roboto-v30-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/css/fonts/roboto-v30-latin-700.woff') format('woff'), /* Modern Browsers */
+         url('/css/fonts/roboto-v30-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/css/fonts/roboto-v30-latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+/* ibm-plex-sans-700 - latin */
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/css/fonts/ibm-plex-sans-v14-latin-700.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('/css/fonts/ibm-plex-sans-v14-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/css/fonts/ibm-plex-sans-v14-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/css/fonts/ibm-plex-sans-v14-latin-700.woff') format('woff'), /* Modern Browsers */
+         url('/css/fonts/ibm-plex-sans-v14-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/css/fonts/ibm-plex-sans-v14-latin-700.svg#IBMPlexSans') format('svg'); /* Legacy iOS */
+}
+@font-face {
+    font-family: 'vtf_redzone_classicregular';
+    src: url('/css/fonts/vtfredzone-classic-webfont.woff2') format('woff2'),
+         url('/css/fonts/vtfredzone-classic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* body */
+body {
+    width: 1920px;
+    height: 1080px;
+    background-color: transparent; 
+    margin: 0 0;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: hidden;
+}
+.row {
+	background-color: #dddddd;
+}
+#backgrounddiv {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 1080px;
+	width: 1920px;
+}
+#backgroundimage {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 1080px;
+	width: 1920px;
+}
+:root {
+	--playclockbox-color: #9da9b1;
+	--playclockbox-text: #0d0728;
+	--team-left: -1500px;
+	--team-down: 500px;
+	--team-rotate: -90deg;
+	--team-fade: 200ms;
+	--teambox-down: 500px;
+	--teambox-rotate: -90deg;
+	--coach-down: 500px;
+	--coach-rotate: -90deg;
+	--rosterbox-down: 500px;
+	--rosterbox-rotate: -90deg;
+
+	--player1-left: -300px;
+	--player1-rotate: 20deg;
+	--player2-left: -300px;
+	--player2-rotate: 20deg;
+	--player3-left: -300px;
+	--player3-rotate: 20deg;
+	--player4-left: -300px;
+	--player4-rotate: 20deg;
+	--player5-left: -300px;
+	--player5-rotate: 20deg;
+	--fade-delay: 0s;
+	--opacity-value-box1: 0;
+	--opacity-value-box2: 0;
+	--name-left: -1600px;
+
+	--roster-opacity: 0;
+	--roster-players-opacity: 0;
+	--roster-team-opacity: 0;
+	--roster-coach-opacity: 0;
+
+	--opacity-team: 0;
+	--opacity-player: 0;
+	--opacity-player1: 0;
+	--opacity-player2: 0;
+	--player-hide: 100px;
+
+	--bauchbox-opacity: 0;
+	--losbox-opacity: 0;
+	--losbox-color: transparent;
+
+	--comp1rotate: 2deg;
+	--comp1baseX: -600px;
+	--comp1moveX: 610px;
+	
+	--comp1sec05: 0.9s;
+	--comp1sec1: 1s;
+	--comp1sec15: 1.5s;
+	
+	--comp2rotate: -2deg;
+	--comp2baseX: 2140px;
+	--comp2moveX: -610px;
+
+	--comp2sec05: 0.9s;
+	--comp2sec1: 1s;
+	--comp2sec15: 1.5s;
+	
+	--teambaseY: -960px;
+	--teammoveY: 960px;
+	--teamrotate: -1deg;
+	--teamsec: 1s;
+
+	--scoreboardrotate: 0deg;
+	--scoreboardsec: 1s;
+
+	--comparisonteambaseY: -960px;
+	--comparisonteammoveY: 960px;
+	--comparisonteamrotate: -1deg;
+	--comparisonteamsec: 1s;
+
+	--comparison1-opacity: 0;
+	--comparison2-opacity: 0;
+	--comparisonTeam-opacity: 0;
+
+	--snsbanner-opacity: 0;
+}
+
+svg {
+	filter:blur(.25px);
+	shape-rendering: geometricPrecision;
+	box-shadow: 0 0 0 1px transparent;
+}
+
+/* noconnection */
+#noconnectionindicator {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 10px;
+	width: 10px;
+}
+#noconnection {
+	position: absolute;
+	left: 200px;
+	top: 400px;
+	height: 670px;
+	width: 1600px;
+	background-color: #dddddd;
+}
+
+/* scoreboard */
+#scoreboard {
+	position: absolute;
+	left: 382px;
+	top: 965px;
+	height: 75px;
+	width: 1200px;
+	perspective: 500px;
+	perspective-origin: bottom;
+	transform-style: preserve-3d;
+}
+#hintergrund {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 75px;
+	width: 1200px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(2px);
+	transition: var(--scoreboardsec);
+}
+#hintergrundimage {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 75px;
+	width: 1200px;
+}
+
+/* score animation */
+.score_scale_image_initial {
+	transform: scale(0.1);
+	transition: 0.1s;
+}
+.score_scale_image {
+	transform: scale(1);
+	transition: 8s;
+}
+.white_box {
+	position: absolute;
+	left: -500px;
+	top: -500px;
+	height: 1500px;
+	width: 1500px;
+	text-align: center;
+	background-color: #ffffff;
+}
+
+#touchdown_box {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 75px;
+	width: 1200px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(4px);
+}
+#touchdown_backgroundbox {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+}
+#touchdown_background {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	text-align: center;
+}
+#touchdown_imagebox {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+}
+#touchdown_image {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	text-align: center;
+}
+#touchdown_masked_box {
+	position: absolute;
+	left: 0px;
+	top: -585px;
+	height: 1200px;
+	width: 1200px;
+	text-align: center;
+}
+#touchdown_masked_image {
+	height: 1200px;
+	width: 1200px;
+	object-fit: contain;
+}
+.touchdown_mask {
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	mask-image: url(/images/scorebug_2024_touchdown_mask.png);
+	mask-repeat: no-repeat;
+	mask-position: center;
+	-webkit-mask-image: url(/images/scorebug_2024_touchdown_mask.png);
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+}
+
+#fieldgoal_box {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 75px;
+	width: 1200px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(4px);
+}
+#fieldgoal_backgroundbox {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+}
+#fieldgoal_background {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	text-align: center;
+}
+#fieldgoal_imagebox {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+}
+#fieldgoal_image {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	text-align: center;
+}
+#fieldgoal_masked_box {
+	position: absolute;
+	left: 0px;
+	top: -585px;
+	height: 1200px;
+	width: 1200px;
+	text-align: center;
+}
+#fieldgoal_masked_image {
+	height: 1200px;
+	width: 1200px;
+	object-fit: contain;
+}
+.fieldgoal_mask {
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	mask-image: url(/images/scorebug_2024_fieldgoal_mask.png);
+	mask-repeat: no-repeat;
+	mask-position: center;
+	-webkit-mask-image: url(/images/scorebug_2024_fieldgoal_mask.png);
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+}
+
+#safety_box {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 75px;
+	width: 1200px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(4px);
+}
+#safety_backgroundbox {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+}
+#safety_background {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	text-align: center;
+}
+#safety_imagebox {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+}
+#safety_image {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	text-align: center;
+}
+#safety_masked_box {
+	position: absolute;
+	left: 0px;
+	top: -585px;
+	height: 1200px;
+	width: 1200px;
+	text-align: center;
+}
+#safety_masked_image {
+	height: 1200px;
+	width: 1200px;
+	object-fit: contain;
+}
+.safety_mask {
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	mask-image: url(/images/scorebug_2024_safety_mask.png);
+	mask-repeat: no-repeat;
+	mask-position: center;
+	-webkit-mask-image: url(/images/scorebug_2024_safety_mask.png);
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+}
+
+#twopt_box {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 75px;
+	width: 1200px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(4px);
+}
+#twopt_backgroundbox {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+}
+#twopt_background {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	text-align: center;
+}
+#twopt_imagebox {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+}
+#twopt_image {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	text-align: center;
+}
+#twopt_masked_box {
+	position: absolute;
+	left: 0px;
+	top: -585px;
+	height: 1200px;
+	width: 1200px;
+	text-align: center;
+}
+#twopt_masked_image {
+	height: 1200px;
+	width: 1200px;
+	object-fit: contain;
+}
+.twopt_mask {
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	mask-image: url(/images/scorebug_2024_twopt_mask.png);
+	mask-repeat: no-repeat;
+	mask-position: center;
+	-webkit-mask-image: url(/images/scorebug_2024_twopt_mask.png);
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+}
+
+#pat_box {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 75px;
+	width: 1200px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(4px);
+}
+#pat_backgroundbox {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+}
+#pat_background {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	text-align: center;
+}
+#pat_imagebox {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+}
+#pat_image {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	text-align: center;
+}
+#pat_masked_box {
+	position: absolute;
+	left: 0px;
+	top: -585px;
+	height: 1200px;
+	width: 1200px;
+	text-align: center;
+}
+#pat_masked_image {
+	height: 1200px;
+	width: 1200px;
+	object-fit: contain;
+}
+.pat_mask {
+	left: 0px;
+	top: -35px;
+	height: 175px;
+	width: 1200px;
+	mask-image: url(/images/scorebug_2024_pat_mask.png);
+	mask-repeat: no-repeat;
+	mask-position: center;
+	-webkit-mask-image: url(/images/scorebug_2024_pat_mask.png);
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+}
+
+
+
+#timeoutbauchbindebox {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 75px;
+	width: 1200px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(4px);
+}
+#timeoutlogobox {
+	position: absolute;
+	left: 750px;
+	top: -80px;
+	height: 180px;
+	width: 450px;
+	text-align: center;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(4px);
+}
+#timeoutlogo {
+	height: 180px;
+	width: 450px;
+	object-fit: contain;
+}
+#timeoutbox {
+	position: absolute;
+	left: 100px;
+	top: -6px;
+	height: 60px;
+	width: 1000px;
+	color: #e5e3e3;
+	font-size: 50px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 1000px;
+	overflow: hidden;
+	vertical-align: middle;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(4px);
+}
+
+#gfllogobox {
+	position: absolute;
+	left: 4px;
+	top: 2px;
+	height: 56px;
+	width: 130px;
+	display: flex;
+	justify-content: left;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#gfllogo {
+	position: absolute;
+	display: flex;
+	max-height: 56px;
+	max-width: 130px;
+}
+#team1timeoutbackgroundbox {
+	position: absolute;
+	left: 145px;
+	top: 8px;
+	height: 62px;
+	width: 245px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#team2timeoutbackgroundbox {
+	position: absolute;
+	left: 460px;
+	top: 8px;
+	height: 62px;
+	width: 245px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+
+#statsnscorebackgroundbox {
+	position: absolute;
+	left: 1040px;
+	top: 8px;
+	height: 62px;
+	width: 151px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(1px);
+}
+#statsnscorebox {
+	position: absolute;
+	left: 1040px;
+	top: 57px;
+	height: 16px;
+	width: 151px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(1px);
+	opacity: var(--snsbanner-opacity);
+	transition: 0.5s;
+
+}
+#statsnscorebackgroundimage {
+	position: absolute;
+	left: 0px;
+	top: -50px;
+	height: 62px;
+	width: 151px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(1px);
+}
+#statsnscore {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 16px;
+	width: 151px;
+	color: #e5e3e3;
+	font-size: 8px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 151px;
+	overflow: hidden;
+	vertical-align: middle;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(1px);
+}
+
+#teamfarbe1box {
+	position: absolute;
+	left: 145px;
+	top: 2px;
+	height: 56px;
+	width: 306px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#teamname1box {
+	position: absolute;
+	left: 230px;
+	top: 4px;
+	height: 52px;
+	width: 150px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#teamname1 {
+	position: absolute;
+	left: 230px;
+	top: -8px;
+	height: 56px;
+	width: 110px;
+	color: #e5e3e3;
+	font-size: 52px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	font-style: italic;
+	text-align: left;
+	text-transform: uppercase;
+	max-width: 110px;
+	overflow: hidden;
+	vertical-align: middle;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#team1timeout1box {
+	position: absolute;
+	left: 152px;
+	top: 61px;
+	height: 5px;
+	width: 70px;
+	background-color: #9da9b1;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#team1timeout2box {
+	position: absolute;
+	left: 232px;
+	top: 61px;
+	height: 5px;
+	width: 70px;
+	background-color: #9da9b1;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#team1timeout3box {
+	position: absolute;
+	left: 312px;
+	top: 61px;
+	height: 5px;
+	width: 70px;
+	background-color: #9da9b1;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#teamlogo1box {
+	position: absolute;
+	left: 145px;
+	top: 2px;
+	height: 56px;
+	width: 80px;
+	text-align: center;
+	vertical-align: middle;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#teamlogo1 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 56px;
+	width: 80px;
+	object-fit: contain;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#teamlogo1box_2, #teamlogo1box_3, #teamlogo2box_2, #teamlogo2box_3 {
+	height: 70px;
+	width: 150px;
+	text-align: center;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#teamlogo1_2, #teamlogo1_3, #teamlogo2_2, #teamlogo2_3 {
+	position: absolute;
+	height: 70px;
+	width: 70px;
+	object-fit: contain;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#spielstand1box {
+	position: absolute;
+	left: 385px;
+	top: 2px;
+	height: 56px;
+	width: 66px;
+	background-color: #060607;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#spielstand1 {
+	position: absolute;
+	left: 385px;
+	top: 0px;
+	height: 48px;
+	width: 66px;
+	color: #e5e3e3;
+	font-size: 40px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#ballbesitz1box {
+	position: absolute;
+	left: 342px;
+	top: 15px;
+	height: 25px;
+	width: 37px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#teamfarbe2box {
+	position: absolute;
+	left: 460px;
+	top: 2px;
+	height: 56px;
+	width: 306px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#teamname2box {
+	position: absolute;
+	left: 545px;
+	top: 4px;
+	height: 52px;
+	width: 150px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#teamname2 {
+	position: absolute;
+	left: 545px;
+	top: -8px;
+	height: 56px;
+	width: 110px;
+	color: #e5e3e3;
+	font-size: 52px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	font-style: italic;
+	text-align: left;
+	text-transform: uppercase;
+	max-width: 110px;
+	overflow: hidden;
+	vertical-align: middle;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#team2timeout1box {
+	position: absolute;
+	left: 467px;
+	top: 61px;
+	height: 5px;
+	width: 70px;
+	background-color: #9da9b1;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#team2timeout2box {
+	position: absolute;
+	left: 547px;
+	top: 61px;
+	height: 5px;
+	width: 70px;
+	background-color: #9da9b1;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#team2timeout3box {
+	position: absolute;
+	left: 627px;
+	top: 61px;
+	height: 5px;
+	width: 70px;
+	background-color: #9da9b1;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#teamlogo2box {
+	position: absolute;
+	left: 460px;
+	top: 2px;
+	height: 56px;
+	width: 80px;
+	text-align: center;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#teamlogo2 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 56px;
+	width: 80px;
+	object-fit: contain;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#spielstand2box {
+	position: absolute;
+	left: 700px;
+	top: 2px;
+	height: 56px;
+	width: 66px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#spielstand2 {
+	position: absolute;
+	left: 700px;
+	top: 0px;
+	height: 48px;
+	width: 66px;
+	color: #e5e3e3;
+	font-size: 40px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#ballbesitz2box {
+	position: absolute;
+	left: 657px;
+	top: 15px;
+	height: 25px;
+	width: 37px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#situationbox {
+	position: absolute;
+	left: 771px;
+	top: 2px;
+	height: 56px;
+	width: 220px;
+	background-color: transparent;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#quarterbox {
+	position: absolute;
+	left: 776px;
+	top: 16px;
+	height: 28px;
+	width: 40px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#quarter {
+	position: absolute;
+	left: 776px;
+	top: 16px;
+	height: 28px;
+	width: 40px;
+	color: #e5e3e3;
+	font-size: 20px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#timebox {
+	position: absolute;
+	left: 820px;
+	top: 8px;
+	height: 42px;
+	width: 90px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#time {
+	position: absolute;
+	left: 820px;
+	top: 0px;
+	height: 42px;
+	width: 90px;
+	color: #e5e3e3;
+	font-size: 40px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: bold;
+	text-align: top;
+	vertical-align: middle;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#playclockbox {
+	position: absolute;
+	left: 934px;
+	top: 18px;
+	height: 26px;
+	width: 45px;
+	background-color: var(--playclockbox-color);
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#playclock {
+	position: absolute;
+	left: 934px;
+	top: 12px;
+	height: 28px;
+	width: 45px;
+	color: var(--playclockbox-text);
+	font-size: 25px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#downdistancebox {
+	position: absolute;
+	left: 1000px;
+	top: 10px;
+	height: 40px;
+	width: 180px;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#downdistance {
+	position: absolute;
+	left: 1000px;
+	top: 10px;
+	height: 4px;
+	width: 180px;
+	color: #9da9b1;
+	font-size: 25px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#flagbox {
+	position: absolute;
+	left: 1000px;
+	top: 4px;
+	height: 52px;
+	width: 194px;
+	background-color: #ffff00;
+	background-image: linear-gradient(to top, #aaaa00 0%, #ffff00 100%);
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#flag {
+	position: absolute;
+	left: 1000px;
+	top: 0px;
+	height: 40px;
+	width: 194px;
+	color: #060607;
+	font-size: 40px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+/* los */
+#losbox {
+	position: absolute;
+	left: 1000px;
+	top: 4px;
+	height: 52px;
+	width: 194px;
+	background-color: var(--losbox-color);
+	opacity: var(--losbox-opacity);
+	transition: all 0.5s;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+#los {
+	position: absolute;
+	left: 0px;
+	top: 34px;
+	height: 40px;
+	width: 194px;
+	color: #e5e3e3;
+	font-size: 12px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(3px);
+}
+
+/* bauchbinde */
+#bauchbox {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 75px;
+	width: 1200px;
+	opacity: var(--bauchbox-opacity);
+	transition: all 0.5s;
+	transform: rotateX(var(--scoreboardrotate)) translateZ(5px);
+}
+#bauchboximagebox {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 75px;
+	width: 1200px;
+}
+#bauchboximage {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 75px;
+	width: 1200px;
+}
+#bauchboxleaguelogobox {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	max-height: 60px;
+	max-width: 140px;
+	display: flex;
+	justify-content: center
+}
+#bauchboxleaguelogo {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	max-height: 60px;
+	max-width: 140px;
+}
+#bauchboxtoptext {
+	position: absolute;
+	left: 100px;
+	top: -4px;
+	height: 40px;
+	width: 1000px;
+	color: #e5e3e3;
+	font-size: 32px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: normal;
+	text-align: center;
+	max-width: 1000px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#bauchboxbottomtext {
+	position: absolute;
+	left: 100px;
+	top: 32px;
+	height: 30px;
+	width: 1000px;
+	color: #e5e3e3;
+	font-size: 18px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 1000px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+/* roster */
+#rosterdiv {
+	perspective: 500px;
+	perspective-origin: bottom;
+	transform-style: preserve-3d;
+}
+#rosterdivbox {
+	position: absolute;
+	left: 350px;
+	top: 950px;
+	height: 105px;
+	width: 1300px;
+	transform: translateY(var(--rosterbox-down)) rotateX(var(--rosterbox-rotate)) translateZ(5px);
+	transition: all 1s;
+	transition-delay: var(--team-fade);
+	opacity: var(--roster-opacity);
+}
+#box1 {
+	position: absolute;
+	left: 0px;
+	top: 890px;
+	height: 190px;
+	width: 1920px;
+	opacity: var(--opacity-value-box1);
+	filter: blur(3px);
+	transform: translateX(0);
+	transition: all 0.5s;
+	transition-delay: var(--fade-delay);
+}
+#box2 {
+	position: absolute;
+	left: 0px;
+	top: 890px;
+	height: 190px;
+	width: 1920px;
+	opacity: var(--opacity-value-box2);
+	filter: blur(3px);
+	transform: translateX(0);
+	transition: all 0.5s;
+	transition-delay: var(--fade-delay);
+}
+#player1div {
+	position: absolute;
+	left: 0px;
+	top: 600px;
+	height: 350px;
+	width: 280px;
+	transform: translateX(var(--player1-left)) rotateY(var(--player1-rotate)) translateZ(10px);
+	transition: all 1s;
+	transition-delay: 200ms;
+}
+#player1divdata {
+	position: absolute;
+	left: 0px;
+	top: 600px;
+	height: 350px;
+	width: 280px;
+	transform: translateX(var(--player1-left)) rotateY(var(--player1-rotate)) translateZ(20px);
+	transition: all 1s;
+	transition-delay: 200ms;
+}
+#player2div {
+	position: absolute;
+	left: 0px;
+	top: 600px;
+	height: 350px;
+	width: 280px;
+	transform: translateX(var(--player2-left)) rotateY(var(--player2-rotate)) translateZ(10px);
+	transition: all 1s;
+	transition-delay: 400ms;
+}
+#player2divdata {
+	position: absolute;
+	left: 0px;
+	top: 600px;
+	height: 350px;
+	width: 280px;
+	transform: translateX(var(--player2-left)) rotateY(var(--player2-rotate)) translateZ(20px);
+	transition: all 1s;
+	transition-delay: 400ms;
+}
+#player3div {
+	position: absolute;
+	left: 0px;
+	top: 600px;
+	height: 350px;
+	width: 280px;
+	transform: translateX(var(--player3-left)) rotateY(var(--player3-rotate)) translateZ(10px);
+	transition: all 1s;
+	transition-delay: 600ms;
+}
+#player3divdata {
+	position: absolute;
+	left: 0px;
+	top: 600px;
+	height: 350px;
+	width: 280px;
+	transform: translateX(var(--player3-left)) rotateY(var(--player3-rotate)) translateZ(20px);
+	transition: all 1s;
+	transition-delay: 600ms;
+}
+#player4div {
+	position: absolute;
+	left: 0px;
+	top: 600px;
+	height: 350px;
+	width: 280px;
+	transform: translateX(var(--player4-left)) rotateY(var(--player4-rotate)) translateZ(10px);
+	transition: all 1s;
+	transition-delay: 800ms;
+}
+#player4divdata {
+	position: absolute;
+	left: 0px;
+	top: 600px;
+	height: 350px;
+	width: 280px;
+	transform: translateX(var(--player4-left)) rotateY(var(--player4-rotate)) translateZ(20px);
+	transition: all 1s;
+	transition-delay: 800ms;
+}
+#player5div {
+	position: absolute;
+	left: 0px;
+	top: 600px;
+	height: 350px;
+	width: 280px;
+	transform: translateX(var(--player5-left)) rotateY(var(--player5-rotate)) translateZ(10px);
+	transition: all 1s;
+	transition-delay: 1000ms;
+}
+#player5divdata {
+	position: absolute;
+	left: 0px;
+	top: 600px;
+	height: 350px;
+	width: 280px;
+	transform: translateX(var(--player5-left)) rotateY(var(--player5-rotate)) translateZ(20px);
+	transition: all 1s;
+	transition-delay: 1000ms;
+}
+#teamdiv {
+	position: absolute;
+	left: 350px;
+	top: 950px;
+	height: 105px;
+	width: 1300px;
+	transform: translateY(var(--team-down)) rotateX(var(--team-rotate)) translateZ(10px);
+	transition: all 1s;
+	transition-delay: var(--team-fade);
+	opacity: var(--roster-team-opacity);
+}
+#coachbox {
+	position: absolute;
+	left: 350px;
+	top: 950px;
+	height: 105px;
+	width: 1300px;
+	transform: translateY(var(--coach-down)) rotateX(var(--coach-rotate)) translateZ(10px);
+	transition: all 1s;
+	transition-delay: var(--team-fade);
+	opacity: var(--roster-coach-opacity);
+}
+
+.fadein{
+	--opacity-value-box1: 1;
+	--opacity-value-box2: 1;
+	--fade-delay: 0s;
+	--team-fade: 200ms;
+}
+.fadeout1{
+	--opacity-value-box1: 0;
+	--opacity-value-box2: 0;
+	--fade-delay: 200ms;
+	--team-fade: 200ms;
+}
+.fadeout2{
+	--opacity-value-box1: 0;
+	--opacity-value-box2: 0;
+	--fade-delay: 400ms;
+	--team-fade: 400ms;
+}
+.fadeout3{
+	--opacity-value-box1: 0;
+	--opacity-value-box2: 0;
+	--fade-delay: 600ms;
+	--team-fade: 600ms;
+}
+.fadeout4{
+	--opacity-value-box1: 0;
+	--opacity-value-box2: 0;
+	--fade-delay: 800ms;
+	--team-fade: 800ms;
+}
+.fadeout5{
+	--opacity-value-box1: 0;
+	--opacity-value-box2: 0;
+	--fade-delay: 1s;
+	--team-fade: 1000ms;
+}
+
+/* stats */
+#stats {
+	position: absolute;
+	left: 390px;
+	top: 923px;
+	height: 42px;
+	width: 1182px;
+	background-color: transparent;
+	opacity: var(--opacity-player);
+	transition: all 0.5s;
+	transform: translateY(var(--player-hide));
+}
+#statsteam1 {
+	opacity: var(--opacity-player1);
+	transition: all 0.5s;
+}
+#statsteam2 {
+	opacity: var(--opacity-player2);
+	transition: all 0.5s;
+}
+
+#statsbackground {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 42px;
+	width: 1182px;
+	opacity: 0.9;
+}
+
+#statsteamfarbe1box {
+	position: absolute;
+	left: 30px;
+	top: 0px;
+	height: 50px;
+	width: 1096px;
+	background-color: transparent;
+}
+#statstext1 {
+	position: absolute;
+	left: 50px;
+	top: 0px;
+	height: 45px;
+	width: 1056px;
+	color: #e5e3e3;
+	font-size: 30px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: normal;
+	text-align: center;
+	max-width: 1056px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#statsteamlogo1box {
+	position: absolute;
+	left: 950px;
+	top: -30px;
+	height: 70px;
+	width: 140px;
+}
+#statsteamlogo1 {
+	height: 70px;
+	width: 140px;
+	object-fit: contain;
+}
+#statsplayerimage1box {
+	position: absolute;
+	left: 100px;
+	top: -100px;
+	height: 140px;
+	width: 100px;
+}
+#statsplayerimage1 {
+	position: absolute;
+	top: -10px;
+	max-height: 140px;
+	width: 100px;
+	object-fit: contain;
+}
+
+#statsteamfarbe2box {
+	position: absolute;
+	left: 30px;
+	top: 0px;
+	height: 50px;
+	width: 1096px;
+	background-color: transparent;
+}
+#statstext2 {
+	position: absolute;
+	left: 50px;
+	top: 0px;
+	height: 45px;
+	width: 1056px;
+	color: #e5e3e3;
+	font-size: 30px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: normal;
+	text-align: center;
+	max-width: 1056px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#statsteamlogo2box {
+	position: absolute;
+	left: 950px;
+	top: -30px;
+	height: 70px;
+	width: 140px;
+}
+#statsteamlogo2 {
+	height: 70px;
+	width: 140px;
+	object-fit: contain;
+}
+#statsplayerimage2box {
+	position: absolute;
+	left: 100px;
+	top: -100px;
+	height: 140px;
+	width: 100px;
+}
+#statsplayerimage2 {
+	position: absolute;
+	top: -10px;
+	max-height: 140px;
+	width: 100px;
+	object-fit: contain;
+}
+
+/* teamstats */
+#teamstats {
+	position: absolute;
+	left: 382px;
+	top: var(--teambaseY);
+	height: 660px;
+	width: 1156px;
+	background-color: transparent;
+	perspective: 500px;
+	perspective-origin: top;
+	transform-style: preserve-3d;
+}
+#teamstatsbackground {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 660px;
+	width: 1156px;
+	transform: translateY(var(--teammoveY)) rotateX(var(--teamrotate)) translateZ(10px);
+	transition: var(--teamsec);
+}
+#teamstatsbackgroundimage {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 660px;
+	width: 1156px;
+	opacity: 0.8;
+	filter:blur(.25px);
+}
+#teamstatsteam1 {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	height: 620px;
+	width: 200px;
+	transform: translateY(var(--teammoveY)) rotateX(var(--teamrotate)) translateZ(20px);
+	transition: var(--teamsec);
+}
+#teamstatslogo1box {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	height: 180px;
+	width: 180px;
+}
+#teamstatslogo1 {
+	height: 180px;
+	width: 180px;
+	object-fit: contain;
+}
+#teamstatsteam1pointsbox {
+	position: absolute;
+	left: 10px;
+	top: 300px;
+	height: 280px;
+	width: 180px;
+}
+#teamstatsteam1points {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 280px;
+	width: 180px;
+	color: #e5e3e3;
+	font-size: 90px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 180px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+#teamstatsteam2 {
+	position: absolute;
+	left: 936px;
+	top: 20px;
+	height: 620px;
+	width: 200px;
+	transform: translateY(var(--teammoveY)) rotateX(var(--teamrotate)) translateZ(20px);
+	transition: var(--teamsec);
+}
+#teamstatslogo2box {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	height: 180px;
+	width: 180px;
+}
+#teamstatslogo2 {
+	height: 180px;
+	width: 180px;
+	object-fit: contain;
+}
+#teamstatsteam2pointsbox {
+	position: absolute;
+	left: 10px;
+	top: 300px;
+	height: 280px;
+	width: 180px;
+}
+#teamstatsteam2points {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 280px;
+	width: 180px;
+	color: #e5e3e3;
+	font-size: 90px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 180px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+#teamstatsbox {
+	position: absolute;
+	left: 278px;
+	top: 20px;
+	height: 620px;
+	width: 600px;
+	background-color: transparent;
+	transform: translateY(var(--teammoveY)) rotateX(var(--teamrotate)) translateZ(20px);
+	transition: var(--teamsec);
+}
+#teamstatsboxbackground {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 620px;
+	width: 600px;
+}
+#teamstatsboxbackgroundimage {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 620px;
+	width: 600px;
+	opacity: 0.9;
+	filter:blur(.25px);
+}
+#teamstatsboxheader {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	height: 60px;
+	width: 560px;
+	color: #e5e3e3;
+	font-size: 46px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 560px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+#teamstatsboxteam1 {
+	position: absolute;
+	left: 30px;
+	top: 80px;
+	height: 540px;
+	width: 100px;
+	background-color: transparent;
+}
+
+.teamstatsboxteamvalues {
+	height: 40px;
+	width: 80px;
+	color: #e5e3e3;
+	font-size: 32px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 80px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+.teamstatsboxyards {
+	position: absolute;
+	left: 10px;
+	top: 20px;
+}
+.teamstatsboxrunyards {
+	position: absolute;
+	left: 10px;
+	top: 85px;
+}
+.teamstatsboxreceivingyards {
+	position: absolute;
+	left: 10px;
+	top: 150px;
+}
+.teamstatsboxfirstdown {
+	position: absolute;
+	left: 10px;
+	top: 215px;
+}
+.teamstatsboxturnovers {
+	position: absolute;
+	left: 10px;
+	top: 280px;
+}
+.teamstatsboxpenalty {
+	position: absolute;
+	left: 10px;
+	top: 345px;
+}
+.teamstatsboxpenaltyyards {
+	position: absolute;
+	left: 10px;
+	top: 410px;
+}
+.teamstatsboxtop {
+	position: absolute;
+	left: 10px;
+	top: 475px;
+}
+
+#teamstatsboxteam2 {
+	position: absolute;
+	left: 470px;
+	top: 80px;
+	height: 540px;
+	width: 100px;
+	background-color: transparent;
+}
+
+#teamstatsboxvalues {
+	position: absolute;
+	left: 160px;
+	top: 80px;
+	height: 540px;
+	width: 280px;
+	background-color: transparent;
+}
+.teamstatsboxnamevalues {
+	height: 40px;
+	width: 280px;
+	color: #e5e3e3;
+	font-size: 32px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 280px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+/* comparison stats player 1 */
+#comparison1 {
+	position: absolute;
+	left: var(--comp1baseX);
+	top: 100px;
+	height: 826px;
+	width: 380px;
+	background-color: transparent;
+	perspective: 500px;
+	perspective-origin: left;
+	transform-style: preserve-3d;
+	opacity: var(--comparison1-opacity);
+	transition: var(--comp1sec1);
+}
+#comparison1box{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 826px;
+	width: 380px;
+	transform: translateX(var(--comp1moveX)) rotateY(var(--comp1rotate)) translateZ(5px);
+	transition: var(--comp1sec1);
+}
+#comparison1boxbackground{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 826px;
+	width: 380px;
+	scale: 1.02; 
+}
+#comparison1boxbackgroundimage {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 826px;
+	width: 380px;
+	opacity: 0.9;
+	filter:blur(.25px);
+}
+#comparison1playerdiv {
+	perspective: 1000px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 440px;
+	width: 380px;
+	transform: translateX(var(--comp1moveX)) rotateY(var(--comp1rotate)) translateZ(15px);
+	transition: var(--comp1sec1);
+}
+#comparison1playerimagediv {
+	transform: translateX(var(--comp1moveX)) rotateY(var(--comp1rotate)) translateZ(10px);
+	transition: var(--comp1sec1);
+}
+#comparison1teamimagediv {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	transform: translateX(var(--comp1moveX)) rotateY(var(--comp1rotate)) translateZ(20px);
+	transition: var(--comp1sec1);
+}
+#comparison1statsdiv {
+	position: absolute;
+	left: 0px;
+	top: 440px;
+	height: 380px;
+	width: 380px;
+	transform: translateX(var(--comp1moveX)) rotateY(var(--comp1rotate)) translateZ(10px);
+	transition: var(--comp1sec1);
+}
+#comparison1statsdivdata {
+	position: absolute;
+	left: 0px;
+	top: 440px;
+	height: 380px;
+	width: 380px;
+	transform: translateX(var(--comp1moveX)) rotateY(var(--comp1rotate)) translateZ(10px);
+	transition: var(--comp1sec1);
+}
+
+/* comparison stats player 2 */
+#comparison2 {
+	position: absolute;
+	left: var(--comp2baseX);
+	top: 100px;
+	height: 826px;
+	width: 380px;
+	background-color: transparent;
+	perspective: 500px;
+	perspective-origin: right;
+	transform-style: preserve-3d;
+	opacity: var(--comparison2-opacity);
+	transition: var(--comp2sec1);
+}
+#comparison2box{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 826px;
+	width: 380px;
+	transform: translateX(var(--comp2moveX)) rotateY(var(--comp2rotate)) translateZ(5px);
+	transition: 1s;
+}
+#comparison2boxbackground{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 826px;
+	width: 380px;
+	scale: 1.02;
+}
+#comparison2boxbackgroundimage {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 826px;
+	width: 380px;
+	opacity: 0.9;
+	filter:blur(.25px);
+}
+
+#comparison2playerdiv {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 440px;
+	width: 380px;
+	transform: translateX(var(--comp2moveX)) rotateY(var(--comp2rotate)) translateZ(15px);
+	transition: 1s;
+}
+#comparison2playerimagediv {
+	transform: translateX(var(--comp2moveX)) rotateY(var(--comp2rotate)) translateZ(10px);
+	transition: 1s;
+}
+#comparison2teamimagediv {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	transform: translateX(var(--comp2moveX)) rotateY(var(--comp2rotate)) translateZ(20px);
+	transition: 1s;
+}
+
+#comparison2statsdiv {
+	position: absolute;
+	left: 0px;
+	top: 440px;
+	height: 380px;
+	width: 380px;
+	transform: translateX(var(--comp2moveX)) rotateY(var(--comp2rotate)) translateZ(10px);
+	transition: 1s;
+}
+#comparison2statsdivdata {
+	position: absolute;
+	left: 0px;
+	top: 440px;
+	height: 380px;
+	width: 380px;
+	transform: translateX(var(--comp2moveX)) rotateY(var(--comp2rotate)) translateZ(10px);
+	transition: var(--comp2sec1);
+}
+
+/* comparison teamstats */
+#comparisonteamstats {
+	position: absolute;
+	left: 382px;
+	top: var(--comparisonteambaseY);
+	height: 660px;
+	width: 1156px;
+	background-color: transparent;
+	perspective: 500px;
+	perspective-origin: top;
+	transform-style: preserve-3d;
+	opacity: var(--comparisonTeam-opacity);
+	transition: var(--comparisonteamsec);
+}
+#comparisonteamstatsbackground {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 660px;
+	width: 1156px;
+	transform: translateY(var(--comparisonteammoveY)) rotateX(var(--comparisonteamrotate)) translateZ(10px);
+	transition: var(--comparisonteamsec);
+}
+#comparisonteamstatsbackgroundimage {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 660px;
+	width: 1156px;
+	opacity: 0.8;
+	filter:blur(.25px);
+}
+#comparisonteamstatsteam1 {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	height: 620px;
+	width: 200px;
+	transform: translateY(var(--comparisonteammoveY)) rotateX(var(--comparisonteamrotate)) translateZ(20px);
+	transition: var(--comparisonteamsec);
+}
+#comparisonteamstatslogo1box {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	height: 180px;
+	width: 180px;
+}
+#comparisonteamstatslogo1 {
+	height: 180px;
+	width: 180px;
+	object-fit: contain;
+}
+#comparisonteamstatsteam1pointsbox {
+	position: absolute;
+	left: 10px;
+	top: 300px;
+	height: 280px;
+	width: 180px;
+}
+#comparisonteamstatsteam1points {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 280px;
+	width: 180px;
+	color: #e5e3e3;
+	font-size: 90px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 180px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#comparisonteamstatsteam1pointsallowed {
+	position: absolute;
+	left: 0px;
+	top: 100px;
+	height: 280px;
+	width: 180px;
+	color: #ff7b7b;
+	font-size: 80px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 180px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+#comparisonteamstatsteam2 {
+	position: absolute;
+	left: 936px;
+	top: 20px;
+	height: 620px;
+	width: 200px;
+	transform: translateY(var(--comparisonteammoveY)) rotateX(var(--comparisonteamrotate)) translateZ(20px);
+	transition: var(--comparisonteamsec);
+}
+#comparisonteamstatslogo2box {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	height: 180px;
+	width: 180px;
+}
+#comparisonteamstatslogo2 {
+	height: 180px;
+	width: 180px;
+	object-fit: contain;
+}
+#comparisonteamstatsteam2pointsbox {
+	position: absolute;
+	left: 10px;
+	top: 300px;
+	height: 280px;
+	width: 180px;
+}
+#comparisonteamstatsteam2points {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 280px;
+	width: 180px;
+	color: #e5e3e3;
+	font-size: 90px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 180px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#comparisonteamstatsteam2pointsallowed {
+	position: absolute;
+	left: 0px;
+	top: 100px;
+	height: 280px;
+	width: 180px;
+	color: #ff7b7b;
+	font-size: 80px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 180px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+#comparisonteamstatsbox {
+	position: absolute;
+	left: 278px;
+	top: 20px;
+	height: 620px;
+	width: 600px;
+	background-color: transparent;
+	transform: translateY(var(--comparisonteammoveY)) rotateX(var(--comparisonteamrotate)) translateZ(20px);
+	transition: var(--comparisonteamsec);
+}
+#comparisonteamstatsboxbackground {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 620px;
+	width: 600px;
+}
+#comparisonteamstatsboxbackgroundimage {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 620px;
+	width: 600px;
+	opacity: 0.9;
+	filter:blur(.25px);
+}
+#comparisonteamstatsboxheader {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	height: 60px;
+	width: 560px;
+	color: #e5e3e3;
+	font-size: 46px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 560px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+#comparisonteamstatsboxteam1 {
+	position: absolute;
+	left: 30px;
+	top: 80px;
+	height: 540px;
+	width: 100px;
+	background-color: transparent;
+}
+
+.comparisonteamstatsboxteamvalues {
+	height: 40px;
+	width: 80px;
+	color: #e5e3e3;
+	font-size: 28px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 80px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+.comparisonteamstatsboxvalue1 {
+	position: absolute;
+	left: 0px;
+	top: 90px;
+}
+.comparisonteamstatsboxvalue2 {
+	position: absolute;
+	left: 0px;
+	top: 145px;
+}
+.comparisonteamstatsboxvalue3 {
+	position: absolute;
+	left: 0px;
+	top: 200px;
+}
+.comparisonteamstatsboxvalue4 {
+	position: absolute;
+	left: 0px;
+	top: 255px;
+}
+.comparisonteamstatsboxvalue5 {
+	position: absolute;
+	left: 0px;
+	top: 310px;
+}
+.comparisonteamstatsboxvalue6 {
+	position: absolute;
+	left: 0px;
+	top: 365px;
+}
+.comparisonteamstatsboxvalue7 {
+	position: absolute;
+	left: 0px;
+	top: 420px;
+}
+.comparisonteamstatsboxvalue8 {
+	position: absolute;
+	left: 0px;
+	top: 475px;
+}
+
+#comparisonteamstatsboxteam2 {
+	position: absolute;
+	left: 490px;
+	top: 80px;
+	height: 540px;
+	width: 100px;
+	background-color: transparent;
+}
+
+#comparisonteamstatsboxvalues {
+	position: absolute;
+	left: 140px;
+	top: 80px;
+	height: 540px;
+	width: 340px;
+	background-color: transparent;
+}
+.comparisonteamstatsboxnamevalues {
+	height: 40px;
+	width: 340px;
+	color: #e5e3e3;
+	font-size: 28px;
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	max-width: 340px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+#comparisonteamstatschartboxteam1 {
+	position: absolute;
+	left: 30px;
+	top: 190px;
+	height: 620px;
+	width: 280px;
+	transform: translateY(var(--comparisonteammoveY)) rotateX(var(--comparisonteamrotate)) translateZ(21px);
+	transition: var(--comparisonteamsec);
+}
+#comparisonteamstatschartboxteam2 {
+	position: absolute;
+	left: 850px;
+	top: 190px;
+	height: 620px;
+	width: 280px;
+	transform: translateY(var(--comparisonteammoveY)) rotateX(var(--comparisonteamrotate)) translateZ(21px);
+	transition: var(--comparisonteamsec);
+}

@@ -1,0 +1,916 @@
+@font-face {
+    font-family: 'vtf_redzone_classicregular';
+    src: url('/css/fonts/vtfredzone-classic-webfont.woff2') format('woff2'),
+         url('/css/fonts/vtfredzone-classic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* roboto-700 - latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/css/fonts/roboto-v30-latin-700.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('/css/fonts/roboto-v30-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/css/fonts/roboto-v30-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/css/fonts/roboto-v30-latin-700.woff') format('woff'), /* Modern Browsers */
+         url('/css/fonts/roboto-v30-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/css/fonts/roboto-v30-latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+/* ibm-plex-sans-700 - latin */
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/css/fonts/ibm-plex-sans-v14-latin-700.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('/css/fonts/ibm-plex-sans-v14-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/css/fonts/ibm-plex-sans-v14-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/css/fonts/ibm-plex-sans-v14-latin-700.woff') format('woff'), /* Modern Browsers */
+         url('/css/fonts/ibm-plex-sans-v14-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/css/fonts/ibm-plex-sans-v14-latin-700.svg#IBMPlexSans') format('svg'); /* Legacy iOS */
+}
+
+
+a:link {
+    color: inherit;
+    text-decoration: inherit;
+}
+a:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
+a:hover {
+    color: blue;
+    text-decoration: inherit;
+}
+a:active {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.contact-style {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    z-index: -1;
+}
+
+.light-grey {
+    background-color: #bdbdbd;
+}
+
+.light-blue {
+    background-color: #a2c3ff;
+}
+
+.mid-blue {
+    background-color: #7eabff;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+.bckgrnd-image {
+    background-image: url("/images/statsnscorehead.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.headline {
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+    font-style: italic;
+    font-size: 4em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.outline {
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: bold;
+    font-style: italic;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.basic-text {
+	font-family: 'Roboto', sans-serif;
+    color: white;
+    text-shadow:  1px  1px 1px black,
+                  1px -1px 1px black,
+                 -1px  1px 1px black,
+                 -1px -1px 1px black;
+}
+
+.realtimestats-bckgrnd-image {
+    background-image: url("/images/realtimestats.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.realtimestats-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.realtimestats-outline {
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.buildinscoreaboard-bckgrnd-image {
+    background-image: url("/images/buildinscoreaboard.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.buildinscoreaboard-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.buildinscoreaboard-outline {
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.productionoverlays-bckgrnd-image {
+    background-image: url("/images/productionoverlays.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.productionoverlays-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.productionoverlays-outline {
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.teammanagement-bckgrnd-image {
+    background-image: url("/images/teammanagement.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.teammanagement-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.teammanagement-outline {
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.gamemanagement-bckgrnd-image {
+    background-image: url("/images/gamemanagement.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.gamemanagement-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.gamemanagement-outline {
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.exportdata-bckgrnd-image {
+    background-image: url("/images/exportdata.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.exportdata-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.exportdata-outline {
+	font-family: 'vtf_redzone_classicregular', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.login-bckgrnd-image {
+    background-image: url("/images/login.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.login-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.login-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.register-bckgrnd-image {
+    background-image: url("/images/register.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.register-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.register-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.home-bckgrnd-image {
+    background-image: url("/images/home.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.logo-bckgrnd-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    opacity: 1.0;
+}
+
+.home-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.home-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+.home-outline-h2 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 2em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.groupmanagement-bckgrnd-image {
+    background-image: url("/images/groupmanagement.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.groupmanagement-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.groupmanagement-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.licencemanagement-bckgrnd-image {
+    background-image: url("/images/licencemanagement.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.licencemanagement-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.licencemanagement-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.payment-bckgrnd-image {
+    background-image: url("/images/payment.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.payment-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.payment-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.changepassword-bckgrnd-image {
+    background-image: url("/images/changepassword.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.changepassword-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.changepassword-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.impressum-bckgrnd-image {
+    background-image: url("/images/impressum.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.impressum-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.impressum-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.datenschutz-bckgrnd-image {
+    background-image: url("/images/datenschutz.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.datenschutz-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.datenschutz-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.subscribe-bckgrnd-image {
+    background-image: url("/images/subscribe.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.subscribe-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.subscribe-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.contact-bckgrnd-image {
+    background-image: url("/images/contact.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.contact-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.contact-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.statistics-bckgrnd-image {
+    background-image: url("/images/statistics.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.statistics-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.statistics-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.docs-bckgrnd-image {
+    background-image: url("/images/docs.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.docs-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.docs-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.documentation-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.documentation-image-800 {
+    width: 100%;
+    max-width: 800px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.documentation-image-400-800 {
+    width: 100%;
+    max-width: 800px;
+    min-width: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.detailed-docs-bckgrnd-image {
+    background-image: url("/images/detaileddocs.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.detailed-docs-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.detailed-docs-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.comparison-docs-bckgrnd-image {
+    background-image: url("/images/comparison.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+.videos-image {
+    width: 100%;
+    max-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.videos-outline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    font-size: 3em;
+    color: white;
+    text-shadow:  1px  1px 1px red,
+                  1px -1px 1px red,
+                 -1px  1px 1px red,
+                 -1px -1px 1px red,
+                  3px  3px 3px black,
+                  3px -3px 3px black,
+                 -3px  3px 3px black,
+                 -3px -3px 3px black;
+}
+
+.videos-bckgrnd-image {
+    background-image: url("/images/videos.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.gameday-bckgrnd-image {
+    background-image: url("/images/gameday.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+.gamelist-bckgrnd-image {
+    background-image: url("/images/gamelist.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+.gameschedule-bckgrnd-image {
+    background-image: url("/images/gameschedule.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.leaguemanagement-bckgrnd-image {
+    background-image: url("/images/league_management.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.seasonschedule-bckgrnd-image {
+    background-image: url("/images/season_schedule.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.statstickers-bckgrnd-image {
+    background-image: url("/images/stats_ticker.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.gamedata-bckgrnd-image {
+    background-image: url("/images/gamedata_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.teamstats-bckgrnd-image {
+    background-image: url("/images/teamstats_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.playerstats-bckgrnd-image {
+    background-image: url("/images/playerstats_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.teamlogo {
+	position: relative;
+	height: 35px;
+	width: 35px;
+	object-fit: contain;
+    padding: 0px;
+}
