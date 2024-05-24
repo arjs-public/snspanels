@@ -56,14 +56,15 @@
     .buttons {
       display: flex;
       justify-content: space-around;
-      width: 250px;
+      width: 340px;
     }
     button {
       margin-top: 10px;
       padding: 10px;
       border: none;
       border-radius: 5px;
-      cursor: pointer;
+      cursor: pointer;      
+      margin-right: 5px;
     }
     button:hover {
       background-color: #ddd;
@@ -95,11 +96,26 @@
         <button onclick="editItem()">Edit</button>
         <button onclick="showNewFunction()">Show New</button>
         <button onclick="showSameFunction()">Show Same</button>
+        <button onclick="hideFunction()">Hide Same</button>
     </div>
   </div>
   <script>
     var items = [];
-    
+    // Function to get data from local storage
+    function getLocalStorageData(key) {
+        return localStorage.getItem(key);
+    }
+
+    // Function to set data in local storage
+    function setLocalStorageData(key, value) {
+        localStorage.setItem(key, value);
+    }
+
+    // Function to remove data from local storage
+    function removeFromLocalStorage(key) {
+        localStorage.removeItem(key);
+    }
+
     function fillTextBoxes() {
         var listbox = document.getElementById("listbox");
         var selectedItem = items[listbox.selectedIndex];
@@ -115,6 +131,7 @@
         var bottom = document.getElementById("bottom").value;
         var item = {name: name, top: top, bottom: bottom};
         items.push(item);
+        setLocalStorageData(name, JSON.stringify(item));
         updateListbox();
         document.getElementById("name").value = "";
         document.getElementById("top").value = "";
@@ -125,6 +142,7 @@
         var listbox = document.getElementById("listbox");
         if (listbox.selectedIndex != -1) { // Check if an item is selected
             items.splice(listbox.selectedIndex, 1);
+            removeFromLocalStorage(listbox.options[listbox.selectedIndex].text);
             updateListbox();
             document.getElementById("name").value = "";
             document.getElementById("top").value = "";
@@ -139,6 +157,7 @@
         var bottom = document.getElementById("bottom").value;
         var item = {name: name, top: top, bottom: bottom};
         items[listbox.selectedIndex] = item;
+        setLocalStorageData(name, JSON.stringify(item));
         updateListbox();
     }
     
@@ -162,6 +181,15 @@
         document.getElementById("bottom").value = "";
     }
     
+    function hideFunction() {
+        var listbox = document.getElementById("listbox");
+        var url = "https://arjs-public.github.io/snspanels/box/overlay.html";
+        window.open(url, "ShowWindow");
+        document.getElementById("name").value = "";
+        document.getElementById("top").value = "";
+        document.getElementById("bottom").value = "";
+    }
+    
     function updateListbox() {
         var listbox = document.getElementById("listbox");
         listbox.innerHTML = "";
@@ -171,6 +199,14 @@
             listbox.add(option);
         }
     }
+
+    // Load data from local storage
+    for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        var item = JSON.parse(getLocalStorageData(key));
+        items.push(item);
+    }
+    updateListbox();
     </script>  
   
 </body>

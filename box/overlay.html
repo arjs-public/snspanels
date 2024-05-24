@@ -130,6 +130,15 @@
         // Display the parameters in the respective divs
         document.getElementById("bauchboxtoptext").textContent = decodedTopText;
         document.getElementById("bauchboxbottomtext").textContent = decodedBottomText;
+
+        // Get the scoreboard div
+        const scoreboardDiv = document.getElementById("scoreboard");
+
+        // Check if either top or bottom has a value
+        const hasValue = decodedTopText || decodedBottomText;
+
+        // Show or hide the scoreboard div based on the condition
+        scoreboardDiv.style.display = hasValue ? 'block' : 'none';
     });    
     </script>
 
