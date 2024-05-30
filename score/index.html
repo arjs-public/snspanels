@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Control Buttons UI</title>
+    <title>SnS Game Control Buttons UI</title>
     <link rel="stylesheet" href="./style.css">
     <style>
         .button-row {            
@@ -69,6 +69,18 @@
             {
                 buttonName: "Flag",
                 commandInfo: "flag",
+                color: "red",
+                background: "yellow"
+            },
+            {
+                buttonName: "Hide",
+                commandInfo: "flagHide",
+                color: "black",
+                background: "orange"
+            },
+            {
+                buttonName: "Long Flag",
+                commandInfo: "flag30",
                 color: "red",
                 background: "yellow"
             },
@@ -253,7 +265,7 @@
         const left = document.getElementById('left');
         const center = document.getElementById('center');
         const right = document.getElementById('right');
-        var layout = [2,4,3,3,3,4,3,3,4,3]; // Layout for the buttons
+        var layout = [4,4,3,3,3,4,3,3,4,3]; // Layout for the buttons
         var side = ["center","center","center","center","left","left","left","right","right","right"]; // Layout for the buttons
 
         function getURLParameter(name) {
