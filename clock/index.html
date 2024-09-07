@@ -61,36 +61,18 @@
     <script>
         let buttons = [
             {
-                buttonName: "Start Gameclock",
-                commandInfo: "startClock,startPlayclock",
-                color: "white",
-                background: "green"
-            },
-            {
-                buttonName: "Stop Gameclock",
+                buttonName: "Stop Game",
                 commandInfo: "stopClock,stopPlayclock,resetPlayclock",
                 color: "yellow",
                 background: "red"
             },
+            {
+                buttonName: "Start Game",
+                commandInfo: "startClock,startPlayclock",
+                color: "white",
+                background: "green"
+            },
             // Add more button objects as needed
-            {
-                buttonName: "Minute -1",
-                commandInfo: "minusMinute",
-                color: "black",
-                background: "#C1C1C1"
-            },
-            {
-                buttonName: "Seconds -10",
-                commandInfo: "minus10Second",
-                color: "black",
-                background: "#C1C1C1"
-            },
-            {
-                buttonName: "Second -1",
-                commandInfo: "minus1Second",
-                color: "black",
-                background: "#C1C1C1"
-            },
             {
                 buttonName: "Minute +1",
                 commandInfo: "plusMinute",
@@ -110,16 +92,29 @@
                 background: "#616163"
             },
             {
-                buttonName: "12min Gameclock",
-                commandInfo: "reset12Clock,resetClock",
+                buttonName: "Minute -1",
+                commandInfo: "minusMinute",
                 color: "black",
                 background: "#C1C1C1"
             },
             {
-                buttonName: "15min Gameclock",
-                commandInfo: "reset15Clock,resetClock",
+                buttonName: "Seconds -10",
+                commandInfo: "minus10Second",
+                color: "black",
+                background: "#C1C1C1"
+            },
+            {
+                buttonName: "Second -1",
+                commandInfo: "minus1Second",
+                color: "black",
+                background: "#C1C1C1"
+            },
+
+            {
+                buttonName: "12min Gameclock",
+                commandInfo: "reset12Clock,resetClock",
                 color: "white",
-                background: "#616163"
+                background: "purple"
             },
             {
                 buttonName: "Reset Gameclock",
@@ -127,46 +122,65 @@
                 color: "black",
                 background: "#e7f1fe"
             },
+            {
+                buttonName: "15min Gameclock",
+                commandInfo: "reset15Clock,resetClock",
+                color: "white",
+                background: "purple"
+            },
+
             // Add more button objects as needed
             {
-                buttonName: "Stop Playclock",
+                buttonName: "Stop Play",
                 commandInfo: "stopPlayclock,resetPlayclock",
                 color: "yellow",
                 background: "red"
             },
             {
-                buttonName: "Playclock -1 sec",
-                commandInfo: "minus1SecondPlayclock",
-                color: "black",
-                background: "orange"
-            },
-            {
-                buttonName: "Start Playclock",
+                buttonName: "Start Play",
                 commandInfo: "startPlayclock",
                 color: "white",
                 background: "green"
             },
             {
-                buttonName: "25s Playclock",
+                buttonName: "Set 25s Play",
                 commandInfo: "reset25Playclock,resetPlayclock",
-                color: "black",
-                background: "#C1C1C1"
+                color: "white",
+                background: "purple"
             },
             {
-                buttonName: "40s Playclock",
+                buttonName: "Start 25s Play",
+                commandInfo: "reset25Playclock,resetPlayclock,startPlayclock",
+                color: "white",
+                background: "green"
+            },
+            {
+                buttonName: "Set 40s Play",
                 commandInfo: "reset40Playclock,resetPlayclock",
                 color: "white",
-                background: "#616163"
+                background: "purple"
+            },
+            {
+                buttonName: "Start 40s Play",
+                commandInfo: "reset40Playclock,resetPlayclock,startPlayclock",
+                color: "white",
+                background: "green"
             },
         
             {
-                buttonName: "Show/Hide Playclock",
+                buttonName: "Show/Hide Play",
                 commandInfo: "playclockShow",
                 color: "black",
                 background: "orange"
             },
             {
-                buttonName: "Reset Playclock",
+                buttonName: "Play -1 sec",
+                commandInfo: "minus1SecondPlayclock",
+                color: "black",
+                background: "#C1C1C1"
+            },
+            {
+                buttonName: "Reset Play",
                 commandInfo: "resetPlayclock",
                 color: "black",
                 background: "#e7f1fe"
@@ -191,7 +205,7 @@
         const left = document.getElementById('left');
         const center = document.getElementById('center');
         const right = document.getElementById('right');
-        var layout = [2,3,3,3,3,2,2]; // Layout for the buttons
+        var layout = [2,3,3,3,2,2,2,3]; // Layout for the buttons
         var side = ["right","right","right","right","left","left","left","left"]; // Layout for the buttons
 
         function getURLParameter(name) {
