@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnS Play Clock Control UI</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .button-row {            
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .button-row button {
+            margin-right: 10px; /* Maintain existing margin */
+            padding: 15px;  /* Maintain existing padding */
+            border: 3px solid black; /* Thicker border */
+            border-radius: 10px; /* Rounded corners with 10px radius */
+            background-color: #e7f1fe; /* Light blue background color */
+            color: green; /* Green text color */
+            font-weight: bold; /* Bold text */
+            font-size: larger; /* Larger font size */
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: top;
+            height: 100vh;
+            margin: 0;
+        }
+        iframe {
+            width: 600px;
+            height: 110px;
+            margin-bottom: 20px;
+        }
+        #button-container {
+            position: fixed;
+            top: 120px;
+        }
+        #right {
+            display: none; /* Hide the right column as it's not used anymore */
+        }
+    </style>
+</head>
+<body>
+<body>
+    <div class="container">
+        <div class="row row-1">
+            <iframe src="https://statsnscore.online/overlay/game/6633d99fd56048341f1f2427/iframegflj" frameborder="0"></iframe>
+        </div>
+        <div class="row row-2">
+            <div id="left" class="column blue flex-column">
+                <span class="center-text title">Playclock</span>
+            </div>
+            <div id="right" class="column red flex-column">
+                <!-- Gameclock title removed -->
+            </div>
+        </div>
+        <div class="row row-3">
+            <p style="font-weight: normal;">Command sent: </p>&nbsp;<p id="command-info"></p>
+        </div>
+    </div>
+    <script>
+        let buttons = [
+            {
+                buttonName: "Stop Play",
+                commandInfo: "stopPlayclock,resetPlayclock",
+                color: "yellow",
+                background: "red"
+            },
+            {
+                buttonName: "Start Play",
+                commandInfo: "startPlayclock",
+                color: "white",
+                background: "green"
+            },
+            {
+                buttonName: "Set 25s Play",
+                commandInfo: "reset25Playclock,resetPlayclock",
+                color: "white",
+                background: "purple"
+            },
+            {
+                buttonName: "Start 25s Play",
+                commandInfo: "reset25Playclock,resetPlayclock,startPlayclock",
+                color: "white",
+                background: "green"
+            },
+            {
+                buttonName: "Set 40s Play",
+                commandInfo: "reset40Playclock,resetPlayclock",
+                color: "white",
+                background: "purple"
+            },
+            {
+                buttonName: "Start 40s Play",
+                commandInfo: "reset40Playclock,resetPlayclock,startPlayclock",
+                color: "white",
+                background: "green"
+            },
+            {
+                buttonName: "Show/Hide Play",
+                commandInfo: "playclockShow",
+                color: "black",
+                background: "orange"
+            },
+            {
+                buttonName: "Play -1 sec",
+                commandInfo: "minus1SecondPlayclock",
+                color: "black",
+                background: "#C1C1C1"
+            },
+            {
+                buttonName: "Reset Play",
+                commandInfo: "resetPlayclock",
+                color: "black",
+                background: "#e7f1fe"
+            }
+        ];
+
+        const token = getURLParameter('token')
+        const game = getURLParameter('game')
+        const league = getURLParameter('league')
+        const test = getURLParameter('test')
+        console.log(token)
+        
+        const iframeElement = document.querySelector('.row-1 iframe'); // Get the iframe element
+        const baseUrl = "https://statsnscore.online/overlay/game/"; // Define the base URL
+        
+        // Construct the source URL using concatenation
+        const sourceUrl = baseUrl + game + "/iframe" + league;        
+        iframeElement.src = sourceUrl; // Set the source attribute
+        console.log(sourceUrl)
+        
+        const commandInfoElement = document.getElementById("command-info");
+        const left = document.getElementById('left');
+        const center = document.getElementById('center');
+        const right = document.getElementById('right');
+        var layout = [2, 2, 2, 3]; // Updated layout for the buttons
+        var side = ["left", "left", "left", "left"]; // Updated side for the buttons
+
+        function getURLParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Function to send the GET request
+        function sendGetRequest(commands) {
+            // Split the commands string into an array
+            const commandList = commands.split(",");
+        
+            // Loop through each command in the list
+            commandList.forEach((command, index) => {
+                setTimeout(() => {
+                    // URL you want to send the request to
+                    var url = 'https://statsnscore.online/scoreboard/controltoken/' + token + '/';
+                    url += command;
+            
+                    console.log(`Sending request for "${command}" to URL: ${url}`);
+            
+                    // Sending the GET request using Fetch API
+                    fetch(url)
+                        .then(response => {
+                            if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                            }
+                            commandInfoElement.textContent = command;
+                            return response.json(); // Assuming response is JSON, adjust as needed
+                        })
+                        .then(data => {
+                            // Handle the response data
+                            console.log(`Response for "${command}":`, data);
+                            commandInfoElement.textContent = command;
+                        })
+                        .catch(error => {
+                            // Handle errors
+                            console.error(`Error for "${command}":`, error);
+                            commandInfoElement.textContent = command;
+                        });
+                }, index * 100); // Add a delay of 100ms multiplied by the index
+            });
+        }
+  
+        let buttonIndex = 0;
+        for (let i = 0; i < layout.length; i++) {
+            const row = document.createElement('div');
+            row.className = 'button-row';
+            for (let j = 0; j < layout[i]; j++) {
+                const button = document.createElement('button');
+                button.textContent = buttons[buttonIndex].buttonName;
+                if (buttons[buttonIndex].color) button.style.color = buttons[buttonIndex].color;
+                if (buttons[buttonIndex].background) button.style.background = buttons[buttonIndex].background;
+                button.onclick = (function(index) {
+                    return function() {
+                        //console.log(buttons[index].commandInfo);
+                        if (!test) sendGetRequest(buttons[index].commandInfo);
+                        commandInfoElement.textContent = buttons[index].commandInfo;
+                    };
+                })(buttonIndex);
+                row.appendChild(button);
+                buttonIndex++;
+            }
+            switch (side[i]) {
+                case "left":
+                    left.appendChild(row);
+                    break;
+                case "center":
+                    center.appendChild(row);
+                    break;
+                case "right":
+                    right.appendChild(row);
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
