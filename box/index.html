@@ -4,72 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>S'nS Info Box Selector</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-    .listbox {
-      width: 200px;
-      height: 200px;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-      padding: 5px;
-      overflow-y: scroll;
-    }
-    .list-item {
-      cursor: pointer;
-    }
-    .list-item:hover {
-      background-color: #ddd;
-    }
-    .edit-fields {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-    .edit-fields {
-        width: 300px;  /* Edit field container width */
-      }
-    .edit-field {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .edit-field label {
-      width: 50px;
-    }
-    input[type="text"] {
-        border: 1px solid #ccc;
-        padding: 5px;
-        width: 100%;  /* Make input fields take full width */
-      }
-    .buttons {
-      display: flex;
-      justify-content: space-around;
-      width: 340px;
-    }
-    button {
-      margin-top: 10px;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;      
-      margin-right: 5px;
-    }
-    button:hover {
-      background-color: #ddd;
-    }
-  </style>
+  <link rel="stylesheet" href="css/box_manager.css">
 </head>
 <body>
   <div class="container">
@@ -91,123 +26,14 @@
       </div>
     </div>
     <div class="buttons">
-        <button onclick="addItem()">Add</button>
-        <button onclick="deleteItem()">Delete</button>
-        <button onclick="editItem()">Edit</button>
-        <button onclick="showNewFunction()">Show New</button>
-        <button onclick="showSameFunction()">Show Same</button>
-        <button onclick="hideFunction()">Hide Same</button>
+        <button class="btn btn-add" onclick="addItem()">Add</button>
+        <button class="btn btn-delete" onclick="deleteItem()">Delete</button>
+        <button class="btn btn-edit" onclick="editItem()">Edit</button>
+        <button class="btn btn-show" onclick="showNewFunction()">Show New</button>
+        <button class="btn btn-show-same" onclick="showSameFunction()">Show Same</button>
+        <button class="btn btn-hide" onclick="hideFunction()">Hide Same</button>
     </div>
   </div>
-  <script>
-    var items = [];
-    // Function to get data from local storage
-    function getLocalStorageData(key) {
-        return localStorage.getItem(key);
-    }
-
-    // Function to set data in local storage
-    function setLocalStorageData(key, value) {
-        localStorage.setItem(key, value);
-    }
-
-    // Function to remove data from local storage
-    function removeFromLocalStorage(key) {
-        localStorage.removeItem(key);
-    }
-
-    function fillTextBoxes() {
-        var listbox = document.getElementById("listbox");
-        var selectedItem = items[listbox.selectedIndex];
-        document.getElementById("name").value = selectedItem.name;
-        document.getElementById("top").value = selectedItem.top;
-        document.getElementById("bottom").value = selectedItem.bottom;
-    }
-    
-    function addItem() {
-        var name = document.getElementById("name").value;
-        if (name == "") return; // Don't add empty items (name is required
-        var top = document.getElementById("top").value;
-        var bottom = document.getElementById("bottom").value;
-        var item = {name: name, top: top, bottom: bottom};
-        items.push(item);
-        setLocalStorageData(name, JSON.stringify(item));
-        updateListbox();
-        document.getElementById("name").value = "";
-        document.getElementById("top").value = "";
-        document.getElementById("bottom").value = "";
-    }
-    
-    function deleteItem() {
-        var listbox = document.getElementById("listbox");
-        if (listbox.selectedIndex != -1) { // Check if an item is selected
-            items.splice(listbox.selectedIndex, 1);
-            removeFromLocalStorage(listbox.options[listbox.selectedIndex].text);
-            updateListbox();
-            document.getElementById("name").value = "";
-            document.getElementById("top").value = "";
-            document.getElementById("bottom").value = "";
-        }    
-    }
-    
-    function editItem() {
-        var listbox = document.getElementById("listbox");
-        var name = document.getElementById("name").value;
-        var top = document.getElementById("top").value;
-        var bottom = document.getElementById("bottom").value;
-        var item = {name: name, top: top, bottom: bottom};
-        items[listbox.selectedIndex] = item;
-        setLocalStorageData(name, JSON.stringify(item));
-        updateListbox();
-    }
-    
-    function showNewFunction() {
-        var listbox = document.getElementById("listbox");
-        var selectedItem = items[listbox.selectedIndex];
-        var url = "https://arjs-public.github.io/snspanels/box/overlay.html?top=" + selectedItem.top + "&bottom=" + selectedItem.bottom;
-        window.open(url, "_blank");
-        document.getElementById("name").value = "";
-        document.getElementById("top").value = "";
-        document.getElementById("bottom").value = "";
-    }
-    
-    function showSameFunction() {
-        var listbox = document.getElementById("listbox");
-        var selectedItem = items[listbox.selectedIndex];
-        var url = "https://arjs-public.github.io/snspanels/box/overlay.html?top=" + selectedItem.top + "&bottom=" + selectedItem.bottom;
-        window.open(url, "ShowWindow");
-        document.getElementById("name").value = "";
-        document.getElementById("top").value = "";
-        document.getElementById("bottom").value = "";
-    }
-    
-    function hideFunction() {
-        var listbox = document.getElementById("listbox");
-        var url = "https://arjs-public.github.io/snspanels/box/overlay.html";
-        window.open(url, "ShowWindow");
-        document.getElementById("name").value = "";
-        document.getElementById("top").value = "";
-        document.getElementById("bottom").value = "";
-    }
-    
-    function updateListbox() {
-        var listbox = document.getElementById("listbox");
-        listbox.innerHTML = "";
-        for (var i = 0; i < items.length; i++) {
-            var option = document.createElement("option");
-            option.text = items[i].name;
-            listbox.add(option);
-        }
-    }
-
-    // Load data from local storage
-    for (var i = 0; i < localStorage.length; i++) {
-        var key = localStorage.key(i);
-        var item = JSON.parse(getLocalStorageData(key));
-        items.push(item);
-    }
-    updateListbox();
-    </script>  
-  
+  <script src="js/box_manager.js" defer></script>
 </body>
 </html>

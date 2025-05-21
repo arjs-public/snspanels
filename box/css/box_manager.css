@@ -1,0 +1,187 @@
+/* Inspired by box/main.css and general modern UI practices */
+
+body {
+  font-family: 'Roboto', sans-serif; /* Adapted from main.css */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center .container horizontally */
+  justify-content: flex-start; /* Align .container to the top */
+  min-height: 100vh;
+  background-color: #f4f4f4; /* Light gray background for the page */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px; /* Increased max-width for better layout */
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif; /* Consistent font */
+  color: #333;
+  margin-top: 0; /* Remove default margin */
+  margin-bottom: 25px;
+  font-size: 1.8em; /* Slightly larger heading */
+  text-align: center;
+}
+
+/* Listbox styling */
+.listbox { /* This is a select element */
+  width: 100%; /* Full width */
+  height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Consistent border-radius */
+  margin-bottom: 20px; /* Increased margin */
+  padding: 10px; /* Added padding */
+  overflow-y: auto; /* Changed from scroll to auto */
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  background-color: #fdfdfd;
+  box-sizing: border-box;
+}
+
+.listbox option { /* Style options if possible (browser dependent) */
+  padding: 8px;
+  cursor: pointer;
+}
+
+.listbox option:hover {
+  background-color: #e9e9e9;
+}
+
+/* Edit fields container */
+.edit-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Increased gap */
+  width: 100%; /* Full width */
+  margin-bottom: 20px; /* Space before buttons */
+}
+
+.edit-field {
+  display: flex;
+  flex-direction: column; /* Stack label on top of input */
+  align-items: flex-start; /* Align label to the left */
+  gap: 5px;
+}
+
+.edit-field label {
+  width: auto; /* Remove fixed width */
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95em;
+  margin-bottom: 2px; /* Small space between label and input */
+}
+
+input[type="text"] {
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Consistent border-radius */
+  padding: 10px 12px; /* Adjusted padding */
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  background-color: #fdfdfd;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff; /* Blue highlight on focus */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Focus ring */
+  outline: none;
+}
+
+/* Buttons container */
+.buttons {
+  display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  justify-content: center; /* Center buttons */
+  gap: 10px; /* Gap between buttons */
+  width: 100%; /* Full width */
+}
+
+/* General button styling using a common class .btn */
+.btn {
+  font-family: 'Roboto', sans-serif;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95em;
+  font-weight: 500;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  min-width: 100px; /* Minimum width for each button */
+  flex-grow: 1; /* Allow buttons to grow and share space */
+  flex-basis: calc(33.333% - 10px); /* Aim for 3 buttons per row, adjust for gap */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.btn:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Specific button colors - can be adjusted */
+.btn-add {
+  background-color: #28a745; /* Green */
+  color: white;
+}
+.btn-add:hover {
+  background-color: #218838;
+}
+
+.btn-delete {
+  background-color: #dc3545; /* Red */
+  color: white;
+}
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+.btn-edit {
+  background-color: #ffc107; /* Yellow */
+  color: #212529;
+}
+.btn-edit:hover {
+  background-color: #e0a800;
+}
+
+.btn-show, .btn-show-same, .btn-hide {
+  background-color: #007bff; /* Blue */
+  color: white;
+}
+.btn-show:hover, .btn-show-same:hover, .btn-hide:hover {
+  background-color: #0056b3;
+}
+
+/* Fallback for browsers that don't support :focus-visible if needed,
+   but modern focus styles usually handle this well. */
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); /* Adjusted focus ring color */
+}
+
+/* Ensure the original button specific selector is also covered or replaced if not using .btn class */
+button { /* This will be overridden by .btn if class is applied */
+  margin-top: 0; /* Reset margin, handled by .buttons gap */
+  margin-right: 0; /* Reset margin, handled by .buttons gap */
+}
+
+/* Remove hover for .list-item as it's not a class in use on listbox options directly */
+/*
+.list-item {
+  cursor: pointer;
+}
+.list-item:hover {
+  background-color: #ddd;
+}
+*/

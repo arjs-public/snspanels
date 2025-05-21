@@ -4,93 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SnS Control Selector</title>
-    <style>
-        .container {
-            max-width: 600px;
-            margin: auto;
-            text-align: center;
-        }
-        .title-container {
-            background: url('title.png') no-repeat center center; 
-            background-size: cover; 
-            width: 600px; 
-            height: 120px; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center;
-        }
-        
-        .title-container h1 {
-            color: white; /* Or any color that provides good contrast with your image */
-        }
-
-        button {
-            background-color: #4CAF50; /* Green background */
-            border: none; /* Remove border */
-            color: white; /* White text */
-            padding: 15px 32px; /* Some padding */
-            text-align: center; /* Centered text */
-            text-decoration: none; /* Remove underline */
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer; /* Mouse pointer on hover */
-            transition-duration: 0.4s; /* Add a transition effect (when you mouse over the button) */
-            border-radius: 12px; /* Rounded edges */
-        }
-        
-        /* When you move the mouse over the button, change its color */
-        button:hover {
-            background-color: #45a049;
-        }
-        
-        /* Style the labels */
-        label {
-            font-family: Arial, sans-serif; /* Change as needed */
-            color: #333; /* Dark gray */
-            font-size: 1.2em; /* Slightly larger font */
-        }
-
-        /* Style the input fields */
-        input[type=text] {
-            width: 100%; /* Full width */
-            padding: 12px 20px; /* Some padding */
-            margin: 8px 0; /* Add some margin */
-            box-sizing: border-box; /* Make sure padding and width stays inside the box */
-            border: 2px solid #ccc; /* Gray border */
-            border-radius: 4px; /* Rounded borders */
-            background-color: #f8f8f8; /* Light gray background */
-            font-size: 16px; /* Increase font size */
-            transition: 0.3s; /* Add a transition effect (when you start to type) */
-        }
-
-        /* When the input field gets focus, change its width to 100% */
-        input[type=text]:focus {
-            width: 100%;
-        }
-
-        /* Style the dropdown list */
-        select {
-            width: 100%; /* Full width */
-            padding: 12px 20px; /* Some padding */
-            margin: 8px 0; /* Add some margin */
-            box-sizing: border-box; /* Make sure padding and width stays inside the box */
-            border: 2px solid #ccc; /* Gray border */
-            border-radius: 4px; /* Rounded borders */
-            background-color: #f8f8f8; /* Light gray background */
-            font-size: 16px; /* Increase font size */
-            transition: 0.3s; /* Add a transition effect (when you start to type) */
-        }
-
-        /* When the dropdown list gets focus, change its width to 100% */
-        select:focus {
-            width: 100%;
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/main_selector.css">
 <body>
     <div class="container">
         <div class="title-container">
+            <img src="title.png" alt="SnS Control Selector Title">
         </div>
             
         <p>Fill in the form below to generate the URL for the selected panel.</p>
@@ -124,44 +42,6 @@
             <button type="button" id="submit-btn">Generate URL</button>
         </form>    
     </div>
-    <script>
-        const form = document.getElementById('url-form');
-        const submitBtn = document.getElementById('submit-btn');
-        
-        submitBtn.addEventListener('click', function(event) {
-          event.preventDefault(); // Prevent default form submission
-        
-          const baseUrl = document.getElementById('baseUrl').value;
-          const gameId = document.getElementById('game-id').value;
-          const league = document.getElementById('league').value;
-          const token = document.getElementById('token').value;
-          const selectedUrl = document.getElementById('url-select').value;
-        
-          // Check if any field is empty
-          if (!gameId || !league || !token) {
-            alert('Please fill in all fields!');
-            return;
-          }
-        
-          // Build the URL
-          //const baseUrl = 'your_base_url'; // Replace with your actual base URL
-          const url = `${baseUrl}/${selectedUrl}/?game=${gameId}&league=${league}&token=${token}`;
-          console.log(url);
-        
-          // Open URL in a new tab/window
-          window.open(url, '_blank');
-        });
-        window.onload = function() {
-            var baseUrl = window.location.origin;
-            console.log(baseUrl);
-            if (!baseUrl.includes('localhost') && !baseUrl.includes('127.0.0.1')) {
-                console.log('not Localhost');
-                document.getElementById('baseUrl').value = 'https://arjs-public.github.io/snspanels';
-            } else {
-                console.log('Localhost');
-                document.getElementById('baseUrl').value = 'http://localhost:5500';
-            }        
-        }
-    </script>
+    <script src="js/main_selector.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,127 @@
+/* General body and page styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5; /* A slightly different light gray for modern feel */
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px; /* Add padding to the body */
+    display: flex;
+    justify-content: center; /* Center the .container */
+    align-items: flex-start; /* Align .container to the top */
+    min-height: 100vh;
+}
+
+/* Main content container */
+.container {
+    background-color: #ffffff;
+    padding: 30px 40px; /* Increased padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer, more diffused shadow */
+    max-width: 600px;
+    width: 100%; /* Responsive width */
+    text-align: center;
+}
+
+/* Title area styling */
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px; /* Space below title image */
+}
+
+.title-container img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    border-radius: 4px; /* Optional: if the image itself could use a slight rounding */
+}
+
+/* Informational paragraph */
+p {
+    font-size: 1.05em; /* Slightly adjusted for readability */
+    color: #555; /* Softer text color */
+    margin-bottom: 25px;
+}
+
+/* Form group styling for spacing */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Align labels and inputs to the left */
+}
+
+/* Label styling */
+label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    font-size: 1em; /* Adjusted size */
+    font-weight: 600; /* Make labels a bit bolder */
+    display: block;
+    margin-bottom: 8px; /* Space between label and input */
+}
+
+/* Input field and select styling */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px 15px; /* Adjusted padding */
+    margin: 0; /* Removed top/bottom margin, handled by form-group */
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Slightly thinner border */
+    border-radius: 5px; /* Consistent border-radius */
+    background-color: #fdfdfd; /* Slightly off-white background */
+    font-size: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: #007bff; /* Blue highlight on focus, matches button */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Focus ring */
+    outline: none; /* Remove default outline */
+}
+
+/* Custom dropdown arrow for select */
+select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23555%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 0.65em auto;
+    padding-right: 40px; /* Make space for custom arrow */
+}
+
+/* Button styling */
+button#submit-btn { /* Targeting specific button if needed, otherwise just 'button' */
+    background-color: #007bff; /* Primary blue */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 10px; /* Space above the button */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+button#submit-btn:hover {
+    background-color: #0056b3; /* Darker blue for hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly more pronounced shadow on hover */
+}
+
+button#submit-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* Focus ring consistent with inputs */
+}
+
+/* Ensure .title-container h1 is hidden if title is purely from image */
+.title-container h1 {
+    display: none;
+}
