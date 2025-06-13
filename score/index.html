@@ -43,7 +43,7 @@
 <body>
     <div class="container">
         <div class="row row-1">
-            <iframe src="https://statsnscore.online/overlay/game/6633d99fd56048341f1f2427/iframegflj" frameborder="0"></iframe>
+            Scoreboard Control
         </div>
         <div class="row row-2">
             <div id="left" class="column blue">
@@ -251,15 +251,14 @@
         const game = getURLParameter('game')
         const league = getURLParameter('league')
         const test = getURLParameter('test')
-        console.log(token)
         
-        const iframeElement = document.querySelector('.row-1 iframe'); // Get the iframe element
-        const baseUrl = "https://statsnscore.online/overlay/game/"; // Define the base URL
+        // const iframeElement = document.querySelector('.row-1 iframe'); // Get the iframe element
+        // const baseUrl = "https://statsnscore.online/overlay/game/"; // Define the base URL
         
-        // Construct the source URL using concatenation
-        const sourceUrl = baseUrl + game + "/iframe" + league;        
-        iframeElement.src = sourceUrl; // Set the source attribute
-        console.log(sourceUrl)
+        // // Construct the source URL using concatenation
+        // const sourceUrl = baseUrl + game + "/iframe" + league;        
+        // iframeElement.src = sourceUrl; // Set the source attribute
+        // console.log(sourceUrl)
         
         const commandInfoElement = document.getElementById("command-info");
         const left = document.getElementById('left');
