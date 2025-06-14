@@ -47,7 +47,7 @@
 <body>
     <div class="container">
         <div class="row row-1">
-            <iframe src="" frameborder="0" scrolling="no"></iframe>
+            Play Clock Control
         </div>
         <div class="row row-2">
             <div id="left" class="column blue flex-column">
@@ -77,7 +77,7 @@
             },
             {
                 buttonName: "Set 25s Play",
-                commandInfo: "reset25Playclock,resetPlayclock",
+                commandInfo: "stopPlayclock,reset25Playclock,resetPlayclock",
                 color: "white",
                 background: "purple"
             },
@@ -89,7 +89,7 @@
             },
             {
                 buttonName: "Set 40s Play",
-                commandInfo: "reset40Playclock,resetPlayclock",
+                commandInfo: "stopPlayclock,reset40Playclock,resetPlayclock",
                 color: "white",
                 background: "purple"
             },
@@ -107,7 +107,7 @@
             },
             {
                 buttonName: "Play -1 sec",
-                commandInfo: "minus1SecondPlayclock",
+                commandInfo: "stopPlayclock,minus1SecondPlayclock",
                 color: "black",
                 background: "#C1C1C1"
             },
@@ -124,13 +124,13 @@
         const league = getURLParameter('league')
         const test = getURLParameter('test')
         
-        const iframeElement = document.querySelector('.row-1 iframe'); // Get the iframe element
-        const baseUrl = "https://statsnscore.online/overlay/game/"; // Define the base URL
+        // const iframeElement = document.querySelector('.row-1 iframe'); // Get the iframe element
+        // const baseUrl = "https://statsnscore.online/overlay/game/"; // Define the base URL
         
-        // Construct the source URL using concatenation
-        const sourceUrl = baseUrl + game + "/iframe" + league;        
-        iframeElement.src = sourceUrl; // Set the source attribute
-        console.log(sourceUrl)
+        // // Construct the source URL using concatenation
+        // const sourceUrl = baseUrl + game + "/iframe" + league;        
+        // iframeElement.src = sourceUrl; // Set the source attribute
+        // console.log(sourceUrl)
         
         const commandInfoElement = document.getElementById("command-info");
         const left = document.getElementById('left');
